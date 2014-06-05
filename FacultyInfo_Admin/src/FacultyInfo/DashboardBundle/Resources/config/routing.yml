@@ -1,0 +1,3 @@
+faculty_info_dashboard_index:
+    pattern:  /
+    defaults: { _controller: FacultyInfoDashboardBundle:Dashboard:index }

@@ -1,0 +1,3 @@
+faculty_info_third_party_data_overview:
+    pattern:  /{eventId}
+    defaults: { _controller: FacultyInfoThirdPartyDataBundle:Overview:index }

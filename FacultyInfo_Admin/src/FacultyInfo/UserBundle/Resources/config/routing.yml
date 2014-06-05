@@ -1,0 +1,3 @@
+faculty_info_user_index:
+    pattern:  /
+    defaults: { _controller: FacultyInfoUserBundle:User:index }

@@ -1,0 +1,15 @@
+faculty_info_dashboard:
+    resource: "@FacultyInfoDashboardBundle/Resources/config/routing.yml"
+    prefix:   /
+
+faculty_info_user:
+    resource: "@FacultyInfoUserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+faculty_info_first_party_data:
+    resource: "@FacultyInfoFirstPartyDataBundle/Resources/config/routing.yml"
+    prefix:   /firstparty
+
+faculty_info_third_party_data:
+    resource: "@FacultyInfoThirdPartyDataBundle/Resources/config/routing.yml"
+    prefix:   /thirdparty

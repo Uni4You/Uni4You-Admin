@@ -1,0 +1,7 @@
+parameters:
+#    faculty_info_third_party_data.example.class: FacultyInfo\ThirdPartyDataBundle\Example
+
+services:
+#    faculty_info_third_party_data.example:
+#        class: %faculty_info_third_party_data.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

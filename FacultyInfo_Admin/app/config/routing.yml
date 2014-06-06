@@ -1,15 +1,25 @@
-faculty_info_dashboard:
+facultyinfo_dashboard:
     resource: "@FacultyInfoDashboardBundle/Resources/config/routing.yml"
     prefix:   /
 
-faculty_info_user:
+facultyinfo_user:
     resource: "@FacultyInfoUserBundle/Resources/config/routing.yml"
     prefix:   /user
 
-faculty_info_first_party_data:
+facultyinfo_firstparty:
     resource: "@FacultyInfoFirstPartyDataBundle/Resources/config/routing.yml"
     prefix:   /firstparty
 
-faculty_info_third_party_data:
+facultyinfo_thirdparty:
     resource: "@FacultyInfoThirdPartyDataBundle/Resources/config/routing.yml"
     prefix:   /thirdparty
+    
+login:
+    pattern:   /login
+    defaults:  { _controller: FacultyInfoUserBundle:Login:login }
+    
+login_check:
+    path:   /login_check
+    
+logout:
+    pattern:   /logout

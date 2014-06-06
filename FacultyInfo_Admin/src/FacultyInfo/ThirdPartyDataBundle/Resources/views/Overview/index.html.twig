@@ -1,1 +1,20 @@
-ThirdPartyData Overview Index
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}thirdParty.title{% endtrans %}{% endblock %}
+{% block header %}{% trans %}thirdParty.header{% endtrans %}{% endblock %}
+{% block subheader %}{% trans %}thirdParty.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'thirdParty.title', 'target': url('facultyinfo_thirdparty_overview') }) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	
+{% endblock %}

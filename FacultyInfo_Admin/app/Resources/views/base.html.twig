@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel='start' href='{{ app.request.getBaseURL() }}'>
+        <link rel='alternate' href='{{ asset('img/logo_pin.png') }}'>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="shortcut icon" href="{{ asset('img/fav.ico') }}" />
+
+        <title>{% block title %}{% endblock %} - Uni4You</title>
+        
+        {% block stylesheets %}
+       		<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' />
+	        <link rel='stylesheet' type='text/css' href='{{ asset('css/color-uni4you.css') }}' media='all' />
+	        <link rel='stylesheet' type='text/css' href='{{ asset('css/blog.css') }}' media='all' />
+	        <link rel='stylesheet' type='text/css' href='{{ asset('css/jquery-jvectormap-1.1.1.css') }}' media="screen"/>
+	        <!--<link rel='stylesheet' type='text/css' href="{{ asset('css/wp-admin.min.css') }}" media='all' />-->
+	        <link rel='stylesheet' type='text/css' href='{{ asset('css/base.css') }}' media='all' />
+	        <link rel='stylesheet' type='text/css' href="{{ asset('css/portal.css') }}" media='all' />
+		{% endblock %}
+
+		{%  block javascript %}
+	        <script type='text/javascript' src='{{ asset('javascript/jquery-1.11.0.min.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/jquery-migrate-1.2.1.min.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/custom.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/prettyPhoto.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/jquery.isotope.min.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/jquery.flexslider.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/jquery.backstretch.min.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/bra.photostream.js') }}'></script>
+	        <script type='text/javascript' src='{{ asset('javascript/header.js') }}'></script>
+	        <script type='text/javascript' src="{{ asset('javascript/jquery-jvectormap-1.1.1.min.js') }}"></script>
+	        <script type='text/javascript' src="{{ asset('javascript/jquery-jvectormap-de-merc-en.js') }}"></script>
+		{% endblock %}
+		
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body id="top" class="home page page-id-15 page-template page-template-cust_home-php no-customize-support" style="text-align:center">
+       
+       {% block body %}{% endblock %}
+
     </body>
 </html>

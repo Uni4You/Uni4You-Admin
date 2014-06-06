@@ -1,0 +1,74 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+        <div id="wrapper" style="text-align:left">
+            <div class="content-wrapper clear" style="padding: 0 30px">
+                <div id="header-wrapper">
+                    <div class="header clear">
+                        <div id="logo">
+                            <a href="{{ url('facultyinfo_dashboard_index') }}" title="{% trans %}menu.home{% endtrans %}"> <img src="{{ asset('img/logo_top.png') }}" alt="{% trans %}menu.home{% endtrans %}" /> </a> 
+                        </div>
+
+                        <div id="primary-menu">
+                            <ul id="menu-main-menu" class="menu">
+                            
+                                {% block menu %}{% endblock %}
+                                
+                              	<li id="menu-item-45" style="background-color: #ccc" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45">
+									<a href="{{ url('facultyinfo_dashboard_index') }}" title="{% trans %}menu.home{% endtrans %}">{% trans %}menu.home{% endtrans %}</a>
+								</li>
+                               
+                                <li id="logoutContainer" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126">
+                                    <a id="menuLogoutWrapper" href="{{ url('logout') }}" title="{% trans %}menu.logout{% endtrans %}"><span id="menuLogout" style="background-image: url({{ asset('img/logout.png') }});"></span><span style="display:none">{% trans %}menu.logout{% endtrans %}</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                {% block breadcrumb %}{% endblock %}
+
+                <div class="one">
+                    <div class="section-title">
+                        <h1 class="title">{% block header %}{% endblock %} <span>{% block subheader %}{% endblock %}</span></h1>
+                    </div>
+                    
+                    {% for flashMessage in app.session.flashbag.get('error') %}
+					    <div class="flash-error">
+					        {{ flashMessage }}
+					    </div>
+					{% endfor %}
+					{% for flashMessage in app.session.flashbag.get('success') %}
+					    <div class="flash-success">
+					        {{ flashMessage }}
+					    </div>
+					{% endfor %}
+
+                    {% block content %}{% endblock %}
+                    
+                </div>
+
+                <div id="footer">
+                    <div id="footer-content">
+                        <div id="footer-top" class="clear">
+                            <div class="one-half">
+                                <div id="text-7" class="widget_text">
+                                    <div class="textwidget">
+                                        {% trans %}footer.appname{% endtrans %} | {% trans with { '%name%' : app.user.name } %}footer.loggedin{% endtrans %} | <a href="{{ url('logout') }}">{% trans %}footer.logout{% endtrans %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="one-half last">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script type='text/javascript'>
+			jQuery(document).ready(function($) {
+				$("body").css("background", "url({{ asset('img/background/grey-300x300.png') }}) repeat");
+			})
+        </script>
+{% endblock %}

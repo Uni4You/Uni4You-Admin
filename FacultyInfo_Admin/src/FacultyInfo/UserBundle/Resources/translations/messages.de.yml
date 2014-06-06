@@ -1,0 +1,14 @@
+userManagement:
+  overview:
+    title: Benutzerverwaltung
+    header: Benutzerverwaltung
+    subheader: Übersicht
+
+signin:
+  title: Login
+  header: Administrations-Panel
+  
+  fields:
+    user: Email
+    password: Passwort
+    send: Login

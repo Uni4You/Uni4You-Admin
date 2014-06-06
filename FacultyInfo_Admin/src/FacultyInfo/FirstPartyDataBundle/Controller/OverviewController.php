@@ -8,6 +8,6 @@ class OverviewController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FacultyInfoFirstPartyDataBundle:Default:index.html.twig');
+        return $this->render('FacultyInfoFirstPartyDataBundle:Overview:index.html.twig');
     }
 }

@@ -1,0 +1,60 @@
+{% block form_start %}
+{% spaceless %}
+    {% set method = method|upper %}
+    {% if method in ["GET", "POST"] %}
+        {% set form_method = method %}
+    {% else %}
+        {% set form_method = "POST" %}
+    {% endif %}
+    {% set attr = attr|merge({'class': (attr.id|default('') ~ ' simpleForm')|trim}) %}
+    <form name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    {% if form_method != method %}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {% endif %}
+{% endspaceless %}
+{% endblock form_start %}
+
+{% block form_label %}
+{% spaceless %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    <input type="{{ type }}" placeholder="{{ label|trans({}, translation_domain) }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block submit_widget %}
+{% spaceless %}
+	{% set attr = attr|merge({'class': (attr.class|default('') ~ ' submit')|trim}) %}
+    {% set type = type|default('submit') %}
+     {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <input type="submit" {{ block('button_attributes') }} value="{{ label|trans({}, translation_domain) }}" />
+{% endspaceless %}
+{% endblock submit_widget %}
+
+{% block form_row %}
+{% spaceless %}
+	{{ form_errors(form) }}
+    <p>
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+    </p>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    	<div class="inlineError">
+        {% for error in errors %}
+            {{ error.message }}<br />
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

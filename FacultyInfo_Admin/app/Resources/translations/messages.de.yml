@@ -1,0 +1,18 @@
+menu:
+  home: Home
+  logout: ausloggen
+  
+  firstParty:
+    label: Eigene Daten verwalten
+    tooltip: Eigene Daten verwalten
+  thirdParty:
+    label: Fremdbeschaffte Daten verwalten
+    tooltip: Fremdbeschaffte Daten verwalten
+  user:
+    label: Benutzerverwaltung
+    tooltip: Benutzerverwaltung
+
+footer:
+  appname: Administrations-Panel für Uni4You
+  loggedin: Eingeloggt als <strong>%name%</strong>
+  logout: ausloggen

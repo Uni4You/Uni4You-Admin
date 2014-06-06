@@ -4,10 +4,10 @@ namespace FacultyInfo\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class UserController extends Controller
+class OverviewController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FacultyInfoUserBundle:User:index.html.twig');
+        return $this->render('FacultyInfoUserBundle:Overview:index.html.twig');
     }
 }

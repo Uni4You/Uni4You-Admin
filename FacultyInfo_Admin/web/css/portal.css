@@ -1,0 +1,195 @@
+h1.title, h2.title, h3.title, h4.title, h5.title, h6.title, #primary-menu ul li a, .section-title .title, .section-title .title a, .section-title h1.title span, .section-title p, #footer h3, .services h2, .item-info h3, .item-info-overlay h3, #contact-intro h1.title, #contact-intro p, .widget h3.title, .post-title h2.title, .post-title h2.title a {
+    font-family: 'Oswald', sans-serif;
+}
+#loginContainer {
+    width: 320px;
+    padding: 114px 0 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.simpleForm {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#userContainer path {
+    fill: #676767;
+}
+#passContainer path {
+    fill: #676767;
+}
+.simpleForm input[type="submit"] {
+margin-left: auto;
+margin-right: 30px;
+width: auto !important;
+min-width: 150px;
+}
+.loginCell {
+    margin: 3px;
+}
+.simpleForm input {
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+    display: block;
+}
+.simpleForm input[readonly="readonly"] {
+	background-color: rgb(243, 243, 243);
+}
+#loginError {
+	text-align: left;
+    background-color: #ffebe8;
+    border: #c00 solid 1px;
+    border-radius: 5px;
+    margin: 0 0 16px 0;
+    padding: 12px;
+}
+#loginWarning {
+	text-align: left;
+    background-color: rgb(255, 251, 157);
+    border: rgb(211, 186, 0) solid 1px;
+    border-radius: 5px;
+    margin: 0 0 16px 0;
+    padding: 12px;
+}
+#loginSuccess {
+	text-align: left;
+    background-color: rgb(199, 255, 173);
+    border: rgb(0, 160, 13) solid 1px;
+    border-radius: 5px;
+    margin: 0 0 16px 0;
+    padding: 12px;
+}
+#footer-top {
+    padding: 15px 0;
+}
+#footer-content {
+    background-color: #ccc;
+    color: #676767;
+}
+#footer a {
+    color: #676767 !important;
+    font-weight: 400 !important;
+}
+#footer a:hover {
+    color: #7CC0CB !important;
+}
+.readonly {
+    background-color: rgb(243, 243, 243);
+}
+div#helpBox {
+    background-color: #fff;
+    width: 25%;
+    position: fixed;
+    z-index: 10;
+    top: 20%;
+    left: -30%;
+    border: 1px #eee;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    text-align: left;
+    padding: 10px;
+    box-shadow: 0 0 4px rgba(82,168,236,.5);
+    -moz-box-shadow: 0 0 8px rgb(82,168,236);
+    -webkit-box-shadow: 0 0 8px rgb(82,168,236);
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: left .5s ease-in-out;
+    -moz-transition: left .5s ease-in-out;
+    -o-transition: left .5s ease-in-out;
+    transition: left .5s ease-in-out;
+}
+div.showHelpbox {
+    left: 0px !important;
+}
+
+#menuLogout{
+	width: 28px;
+	height: 30px;
+	display: inline-block;
+	height: 30px;
+}
+#menuLogoutWrapper:hover #menuLogout {
+	background-position: 0px 100%;
+}
+
+/* Styles for Forms */
+form.portalForm label {
+	display: inline-block;
+	width: 200px;
+}
+form.portalForm input + label {
+	width: auto !important;
+}
+form.portalForm input, select {
+	margin-bottom: 10px;
+}
+form.portalForm input[type="text"], form.portalForm input[type="email"], form.portalForm input[type="textarea"], form.portalForm input[type="file"], form.portalForm textarea {
+	width: 282px !important;
+	resize: none;
+}
+form.portalForm input[type="submit"] {
+	min-width: 110px;
+}
+form.portalForm select {
+	width: 300px;
+}
+form.portalForm div.dateCollection select {
+	width: auto;
+}
+form.portalForm div.dateCollection input{
+	width: auto !important;
+}
+form.portalForm input[readonly="readonly"], form.portalForm textarea[disabled="disabled"] {
+	background-color: rgb(243, 243, 243);
+}
+div.inlineError {
+	background-color: #ffebe8;
+	border: #c00 solid 1px;
+	border-radius: 5px;
+	margin: 0 0 16px 0;
+	padding: 12px;
+}
+.formInputLC {
+	width: 100%;
+	resize: none;
+}
+.required {
+	color: red;
+}
+
+input + label > span.required {
+	display: none;
+}
+
+.formMultiSelectContainer {
+	overflow: auto;
+	max-height: 150px;
+	outline: medium none;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #bbb;
+	border: 1px solid #ddd;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-transition: all 0.2s ease-out 0s;
+	-moz-transition: all 0.2s ease-out 0s;
+	-o-transition: all 0.2s ease-out 0s;
+	background-color: #fff;
+	padding: 8px;
+	width: 282px;
+	display: inline-block;
+}
+.formMultiSelectContainer:hover {
+	border: 1px solid #8DC5C5;
+	color: #676767;
+	box-shadow: 0 0 4px rgba(82,168,236,.5);
+	-moz-box-shadow: 0 0 4px rgba(82,168,236,.5);
+	-webkit-box-shadow: 0 0 4px rgba(82,168,236,.5);
+}

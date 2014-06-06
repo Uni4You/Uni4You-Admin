@@ -1,0 +1,49 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{% trans %}signin.title{% endtrans %}{% endblock %}
+
+{% block body %}
+	<div id="loginContainer" style="text-align:right">
+		<img src="{{ asset('img/logo_top.png') }}" style="width:320px;display:block;" />
+		<div class="section-title" style="margin:0px;"><h1 style="text-align: center" class="title">{% trans %}signin.header{% endtrans %}</h1></div>
+		
+		{% for flashMessage in app.session.flashbag.get('error') %}
+			<div class="flash-error">
+				{{ flashMessage }}
+			</div>
+		{% endfor %}
+		{% for flashMessage in app.session.flashbag.get('success') %}
+			<div class="flash-success">
+				{{ flashMessage }}
+			</div>
+		{% endfor %}
+			
+		{% if error %}
+			<div id="loginError">{{ error.message }}</div>
+		{% endif %}
+		
+		<form class="simpleForm" method="post" action="{{ path('login_check') }}">
+		    <input type="hidden" id="js" name="js" value="">
+		    <p>
+		        <input class="loginInput" placeholder="{% trans %}signin.fields.user{% endtrans %}" type="text" name="_username" value="{{ last_username }}" size="30" />
+		    </p>
+		    <p>
+		        <input class="loginInput" placeholder="{% trans %}signin.fields.password{% endtrans %}" type="password" name="_password" size="30" />
+		    </p>
+		    <p>
+				<input  type="submit" id="loginButton" class="submit" value="{% trans %}signin.fields.send{% endtrans %}" /></p>
+		     
+		</form>
+		<script>
+			jQuery(document).ready(function($) {
+				$("#js").val('1');
+			}); 
+		</script>
+			
+		</div>
+		<script type='text/javascript'>
+			jQuery(document).ready(function($){
+				$("body").css("background", "url({{ asset('img/background/grey-300x300.png') }}) repeat");
+			})
+		</script>
+{% endblock %}	

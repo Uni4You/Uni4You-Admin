@@ -1,1 +1,17 @@
-Dashboard
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}dashboard.title{% endtrans %}{% endblock %}
+
+{% block header %}{% trans with {'%name%': app.user.name} %}dashboard.header{% endtrans %}{% endblock %}
+
+{% block subheader %}{% trans %}dashboard.subheader{% endtrans %}{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	
+{% endblock %}

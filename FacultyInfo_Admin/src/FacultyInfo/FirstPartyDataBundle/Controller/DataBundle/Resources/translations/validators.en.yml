@@ -1,0 +1,7 @@
+account:
+   error:
+      invalidFormat: Input has invalid format!
+
+ep:
+   error:
+      maxDurationLessMin: The maximum duration has to be greater or equal to the minimum duration!

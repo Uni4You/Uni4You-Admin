@@ -1,0 +1,20 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}userManagement.overview.title{% endtrans %}{% endblock %}
+{% block header %}{% trans %}userManagement.overview.header{% endtrans %}{% endblock %}
+{% block subheader %}{% trans %}userManagement.overview.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'userManagement.title', 'target': url('facultyinfo_user_overview') }) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	
+{% endblock %}

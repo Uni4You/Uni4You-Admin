@@ -1,0 +1,60 @@
+First name: Vorname
+Last name: Nachname
+Email: Email
+Gender: Geschlecht
+Phone: Telefon
+Birthday: Geburtstag
+Address: Straße, Hausnummer
+Zip: Postleitzahl
+City: Ort
+
+My studies: Mein Studium
+University: Universität
+Graduation year: Voraussichtliches Abschlussjahr
+Degree type: Angestrebter Abschluss
+Area of studies: Studienrichtung
+Semester: Fachsemester
+Student: Bist du Immatrikuliert?
+
+Practical experience: Hast du während oder vor deinem Studium Praktika absolviert oder vergleichbare Praxiserfahrungen gesammelt?
+Practical experience description: Wie lange und in welchem Tätigkeitsfeld?
+
+Voluntary work: Engagierst du dich oder hast du dich neben dem Studium ehrenamtlich engagiert?
+Voluntary work description: Wie lange und in welchem Tätigkeitsfeld?
+
+GCDP_focus: Fokus deines Global Citizen Programmes
+GIP_focus: Fokus deines Global Talent Programmes
+
+Earliest start date: Frühestes Start Datum
+Latest start date: Spätestes Start Datum
+
+GCDP_earliestStartDate: Wann kannst du frühestens dein Global Citizen Programm beginnen?
+GCDP_latestStartDate: Wann kannst du spätestens dein Global Citizen Programm beginnen?
+
+GIP_earliestStartDate: Wann kannst du frühestens dein Global Talent Programm beginnen?
+GIP_latestStartDate: Wann kannst du spätestens dein Global Talent Programm beginnen?
+
+GCDP_minDuration: Mindestdauer deines Global Citizen Programmes (Wochen)
+GCDP_maxDuration: Maximaldauer deines Global Citizen Programmes (Wochen)
+
+GIP_minDuration: Mindestdauer deines Global Talent Programmes (Wochen)
+GIP_maxDuration: Maximaldauer deines Global Talent Programmes (Wochen)
+
+World areas of interest: Welche Teile der Welt interessieren dich besonders?
+Countries of interest: Welche dieser Länder interessieren dich besonders?
+
+GCDP_letterOfMotivation: Warum möchtest du an einem Global Citizen Programm mit AIESEC teilnehmen? Bitte erläutere deine Motivation. (max. 500 Wörter)
+GIP_letterOfMotivation: Warum möchtest du an einem Global Talent Programm mit AIESEC teilnehmen? Bitte erläutere deine Motivation. (max. 500 Wörter)
+
+Way of finding aiesec: Wie bist du auf AIESEC aufmerksam geworden?
+Additional comments: Sonstige Anmerkungen oder Fragen
+
+Recaptcha: Bitte entschlüssle das Captcha
+
+#values
+
+Male: männlich
+Female: weiblich
+
+diplom: Diplom
+

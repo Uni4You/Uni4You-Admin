@@ -3,23 +3,14 @@
 namespace FacultyInfo\UserBundle\Entity;
 
 class Password {
-	private $first;
-	private $second;
+	private $password;
 
-	public function getFirst() {
-		return $this -> first;
+	public function getPassword() {
+		return $this -> password;
 	}
 
-	public function setFirst($first) {
-		$this -> first = $first;
-	}
-
-	public function getSecond() {
-		return $this -> second;
-	}
-
-	public function setSecond($second) {
-		$this -> second = $second;
+	public function setPassword($password) {
+		$this -> password = $password;
 	}
 
 }

@@ -19,5 +19,6 @@ footer:
   
 form:
   save: Speichern
+  saveFailed: Fehler beim Speichern der Daten.
   start:
     required: Pflichtfeld

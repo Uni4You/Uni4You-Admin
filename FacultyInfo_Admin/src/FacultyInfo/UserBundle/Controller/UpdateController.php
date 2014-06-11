@@ -36,7 +36,7 @@ class UpdateController extends Controller {
 			if ($pwdForm -> isSubmitted()) {
 				if ($pwdForm -> isValid()) {
 					$encoder = $this -> container -> get('facultyinfo_user_custom_encoder');
-					$encodedPwd = $encoder -> encodePassword($pwd -> getFirst(), $currentUser -> getSalt());
+					$encodedPwd = $encoder -> encodePassword($pwd -> getPassword(), $currentUser -> getSalt());
 					$user -> setPassword($encodedPwd);
 					$em -> flush();
 					$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.update.passwordSuccessful', array('%name%' => $user -> getName())));

@@ -33,7 +33,7 @@ class OverviewController extends Controller {
 		$em -> remove($user);
 		$em -> flush();
 
-		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.delete.userDeleted'));
+		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.delete.successful', array('%name%' => $user -> getName())));
 		return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
 	}
 

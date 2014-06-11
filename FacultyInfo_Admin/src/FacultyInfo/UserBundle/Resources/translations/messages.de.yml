@@ -18,9 +18,22 @@ userManagement:
     passwordSuccessful: Das Passwort von %name% wurde erfolgreich geändert.
     saveUser: Benutzerdaten speichern
     savePassword: Passwort ändern
+    passwordsDontMatch: Die eingegebenen Passwörter müssen übereinstimmen.
     section:
       password: Passwort ändern
       user: Benutzer ändern
+      
+  create:
+    title: Neuer Benutzer
+    header: Neuer Benutzer
+    breadcrumb: Neuer Benutzer
+    successful: Der Benutzer %name% wurde erfolgreich angelegt. Sein Initial-Passwort lautet %pwd%.
+    save: Benutzer anlegen
+    section:
+      user: Benutzerdaten
+
+  delete:
+    successful: Der Benutzer %name% wurder erfolgreich gelöscht.
 
 signin:
   title: Login

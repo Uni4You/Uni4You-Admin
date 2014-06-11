@@ -9,3 +9,7 @@ facultyinfo_user_delete:
 facultyinfo_user_update:
     pattern: /update/{userId}
     defaults: { _controller: FacultyInfoUserBundle:Update:index }
+    
+facultyinfo_user_create:
+    pattern: /create
+    defaults: { _controller: FacultyInfoUserBundle:Create:index }

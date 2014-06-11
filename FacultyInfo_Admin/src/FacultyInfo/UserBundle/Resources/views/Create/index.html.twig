@@ -1,0 +1,23 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}userManagement.create.title{% endtrans %}{% endblock %}
+{% block header %}{% trans %}userManagement.create.header{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'userManagement.overview.title', 'target': url('facultyinfo_user_overview') }) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'userManagement.create.breadcrumb', 'target': url('facultyinfo_user_create') }) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="title">{% trans %}userManagement.create.section.user{% endtrans %}</h1>
+	{{ form(form) }}
+	
+{% endblock %}

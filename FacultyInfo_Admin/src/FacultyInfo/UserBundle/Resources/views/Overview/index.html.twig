@@ -6,7 +6,7 @@
 
 {% block breadcrumb %}
 	{{ include(':Breadcrumb:start.html.twig') }}
-	{{ include(':Breadcrumb:current.html.twig', {'title': 'userManagement.title', 'target': url('facultyinfo_user_overview') }) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'userManagement.overview.title', 'target': url('facultyinfo_user_overview') }) }}
 {% endblock %}
 
 {% block menu %}
@@ -16,5 +16,30 @@
 {% endblock %}
 
 {% block content %}
+	<table style="width: 100%">
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th></th>
+		</tr>
+	
+		{% for user in users %}
+			<tr>
+				<td>{{ user.name }}</td>
+				<td>{{ user.email }}</td>
+				<td>
+				<a href="{{ url('facultyinfo_user_update', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+				<a href="{{ url('facultyinfo_user_delete', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
+				</td>
+			</tr>
+		{% endfor %}
+		
+		<tr>
+			<td colspan="3">
+				<a href="">Neuen Benutzer anlegen...</a>
+			</td>
+		</tr>
+	
+	</table>
 	
 {% endblock %}

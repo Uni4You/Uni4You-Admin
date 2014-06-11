@@ -1,0 +1,33 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ user.name }}{% endblock %}
+{% block header %}{% trans %}userManagement.update.header{% endtrans %}{% endblock %}
+{% block subheader %}{{ user.name }}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'userManagement.overview.title', 'target': url('facultyinfo_user_overview') }) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': user.name, 'target': url('facultyinfo_user_update', { 'userId' : user.id } ) }) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+
+	<h1 class="title">{% trans %}userManagement.update.section.user{% endtrans %}</h1>
+	{{ form(userForm) }}
+	
+	{% if pwdForm %}
+	
+		<div class="divider-border" style="margin-top: 20px; margin-bottom: 20px"></div>
+		<h1 class="title">{% trans %}userManagement.update.section.password{% endtrans %}</h1>
+	
+		{{ form(pwdForm) }}
+		
+	{% endif %}
+	
+{% endblock %}

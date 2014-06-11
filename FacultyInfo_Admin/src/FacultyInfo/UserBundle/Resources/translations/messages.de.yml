@@ -3,6 +3,24 @@ userManagement:
     title: Benutzerverwaltung
     header: Benutzerverwaltung
     subheader: Übersicht
+    newUser: Neuen Benutzer anlegen...  
+  
+    
+  labels:
+    name: Name
+    email: Email
+    firstPassword: Neues Passwort
+    secondPassword: Passwort wiederholen
+    
+  update:
+    header: Benutzer ändern
+    userSuccessful: Der Benutzer %name% wurde erfolgreich geändert.
+    passwordSuccessful: Das Passwort von %name% wurde erfolgreich geändert.
+    saveUser: Benutzerdaten speichern
+    savePassword: Passwort ändern
+    section:
+      password: Passwort ändern
+      user: Benutzer ändern
 
 signin:
   title: Login

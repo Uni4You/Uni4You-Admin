@@ -16,3 +16,8 @@ footer:
   appname: Administrations-Panel für Uni4You
   loggedin: Eingeloggt als <strong>%name%</strong>
   logout: ausloggen
+  
+form:
+  save: Speichern
+  start:
+    required: Pflichtfeld

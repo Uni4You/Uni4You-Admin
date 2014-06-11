@@ -1,3 +1,11 @@
 facultyinfo_user_overview:
     pattern:  /
     defaults: { _controller: FacultyInfoUserBundle:Overview:index }
+
+facultyinfo_user_delete:
+    pattern: /delete/{userId}
+    defaults: { _controller: FacultyInfoUserBundle:Overview:delete }
+
+facultyinfo_user_update:
+    pattern: /update/{userId}
+    defaults: { _controller: FacultyInfoUserBundle:Update:index }

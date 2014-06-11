@@ -22,6 +22,15 @@
 			<th>Email</th>
 			<th></th>
 		</tr>
+		
+		<tr>
+			<td><strong>{{ me.name }}</strong></td>
+			<td>{{ me.email }}</td>
+			<td>
+			<a href="{{ url('facultyinfo_user_update', { 'userId' : me.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			<a href="{{ url('facultyinfo_user_delete', { 'userId' : me.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
+			</td>
+		</tr>
 	
 		{% for user in users %}
 			<tr>

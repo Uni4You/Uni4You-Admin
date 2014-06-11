@@ -7,9 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class OverviewController extends Controller {
 
 	public function indexAction() {
-		$users = $this -> container -> get('doctrine') -> getManager() -> getRepository('FacultyInfoUserBundle:User') -> findAll();
+		$users = $this -> container -> get('doctrine') -> getManager() -> getRepository('FacultyInfoUserBundle:User') -> findBy(array(), array('name' => 'asc'));
 
-		return $this -> render('FacultyInfoUserBundle:Overview:index.html.twig', array('users' => $users));
+		$currentUser = $this -> get('security.context') -> getToken() -> getUser();
+		foreach ($users as $key => $user) {
+			if ($user -> getId() === $currentUser -> getId()) {
+				$me = $user;
+				unset($users[$key]);
+				break;
+			}
+		}
+
+		return $this -> render('FacultyInfoUserBundle:Overview:index.html.twig', array('users' => $users, 'me' => $me));
 	}
 
 	public function deleteAction($userId) {

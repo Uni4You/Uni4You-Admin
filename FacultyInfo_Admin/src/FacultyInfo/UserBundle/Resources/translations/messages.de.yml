@@ -3,7 +3,11 @@ userManagement:
     title: Benutzerverwaltung
     header: Benutzerverwaltung
     subheader: Übersicht
-    newUser: Neuen Benutzer anlegen...  
+    newUser: Neuen Benutzer anlegen...
+    columns:
+      username: Benutzername
+      email: Email-Adresse
+    newUser: Neuen Benutzer anlegen...
   
     
   labels:
@@ -27,10 +31,13 @@ userManagement:
     title: Neuer Benutzer
     header: Neuer Benutzer
     breadcrumb: Neuer Benutzer
-    successful: Der Benutzer %name% wurde erfolgreich angelegt. Sein Initial-Passwort lautet %pwd%.
+    successful: Der Benutzer %name% wurde erfolgreich angelegt. Sein Initial-Passwort lautet <tt>%pwd%</tt> .
     save: Benutzer anlegen
     section:
       user: Benutzerdaten
+      
+  passwordReset:
+    successful: Das Password von %name% wurde erfolgreich zurückgesetzt. Das neue Passwort lautet <tt>%pwd%</tt> .
 
   delete:
     successful: Der Benutzer %name% wurder erfolgreich gelöscht.

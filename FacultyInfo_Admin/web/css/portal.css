@@ -208,6 +208,10 @@ td {
 	padding-bottom: 10px;
 }
 
+td.specialRow {
+	font-weight: 700;
+}
+
 img.tableButton {
 	padding: 5px;
 	-moz-border-radius: 3px;

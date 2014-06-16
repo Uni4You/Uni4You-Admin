@@ -13,3 +13,7 @@ facultyinfo_user_update:
 facultyinfo_user_create:
     pattern: /create
     defaults: { _controller: FacultyInfoUserBundle:Create:index }
+    
+facultyinfo_user_reset:
+    pattern: /reset/{userId}
+    defaults: { _controller: FacultyInfoUserBundle:Overview:reset }

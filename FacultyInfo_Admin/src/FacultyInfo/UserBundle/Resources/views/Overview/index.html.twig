@@ -18,16 +18,16 @@
 {% block content %}
 	<table style="width: 100%">
 		<tr>
-			<th>Username</th>
-			<th>Email</th>
+			<th>{% trans %}userManagement.overview.columns.username{% endtrans %}</th>
+			<th>{% trans %}userManagement.overview.columns.email{% endtrans %}</th>
 			<th></th>
 		</tr>
 		
 		<tr>
-			<td><strong>{{ me.name }}</strong></td>
-			<td>{{ me.email }}</td>
-			<td>
-			<a href="{{ url('facultyinfo_user_update', { 'userId' : me.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			<td class="specialRow">{{ me.name }}</td>
+			<td class="specialRow">{{ me.email }}</td>
+			<td class="specialRow">
+				<a href="{{ url('facultyinfo_user_update', { 'userId' : me.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
 			</td>
 		</tr>
 	
@@ -36,15 +36,16 @@
 				<td>{{ user.name }}</td>
 				<td>{{ user.email }}</td>
 				<td>
-				<a href="{{ url('facultyinfo_user_update', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-				<a href="{{ url('facultyinfo_user_delete', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
+					<a href="{{ url('facultyinfo_user_update', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+					<a href="{{ url('facultyinfo_user_delete', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
+					<a href="{{ url('facultyinfo_user_reset', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/reset_password.png') }}" /></a>
 				</td>
 			</tr>
 		{% endfor %}
 		
 		<tr>
 			<td colspan="3">
-				<a href="{{ url('facultyinfo_user_create') }}">Neuen Benutzer anlegen...</a>
+				<a href="{{ url('facultyinfo_user_create') }}">{% trans %}userManagement.overview.newUser{% endtrans %}</a>
 			</td>
 		</tr>
 	

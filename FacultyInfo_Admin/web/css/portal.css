@@ -233,6 +233,10 @@ img.tableButton {
 	border-radius: 3px;
 	margin-right: 10px;
 }
+img.tableIcon {
+	padding: 5px;
+	margin-right: 10px;
+}
 img.tableButton:hover {
 	background-color: #EB7500;
 }

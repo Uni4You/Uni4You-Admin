@@ -16,6 +16,18 @@
 {% endblock %}
 
 {% block content %}
+	<script>
+		function loadData(url, name) {
+			console.log('Start loading from ' + url);
+			jQuery(".reloadButton").css("display", "none");
+			jQuery("#" + name + "LoadingIndicator").css("display", "inline");
+			jQuery.ajax(url).always(function(data){
+				console.log('Finish loading from ' + url);
+				location.reload();
+			});
+		};
+	</script>
+	
 	<table style="width: 100%">
 		<tr>
 			<th>{% trans %}thirdParty.columns.name{% endtrans %}</th>

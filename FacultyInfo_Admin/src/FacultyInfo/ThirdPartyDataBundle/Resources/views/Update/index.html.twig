@@ -1,0 +1,21 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ ('thirdParty.' ~ module.name ~ '.name')|trans }}{% endblock %}
+{% block header %}{% trans %}thirdParty.update.header{% endtrans %}{% endblock %}
+{% block subheader %}{{ ('thirdParty.' ~ module.name ~ '.name')|trans }}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'thirdParty.title', 'target': url('facultyinfo_thirdparty_overview') }) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': ('thirdParty.' ~ module.name ~ '.name'), 'target': url('facultyinfo_thirdparty_update', { 'id' : module.name } ) }) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	{{ form(form) }}
+{% endblock %}

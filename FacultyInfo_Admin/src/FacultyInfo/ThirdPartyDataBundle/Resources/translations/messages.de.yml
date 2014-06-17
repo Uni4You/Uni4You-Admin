@@ -3,6 +3,13 @@ thirdParty:
   header: Fremdbeschaffte Daten
   subheader: Übersicht
   
+  update:
+    header: Modul bearbeiten
+    successful: Das Modul %name% wurde erfolgreich bearbeitet.
+  
+  labels:
+    sourceUrl: Quell-Url
+  
   columns:
     name: Modul
     lastUpdate: Letztes Update

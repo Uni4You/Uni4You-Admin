@@ -3,3 +3,25 @@ thirdParty:
   header: Fremdbeschaffte Daten
   subheader: Übersicht
   
+  columns:
+    name: Modul
+    lastUpdate: Letztes Update
+    status: Status
+    
+  busline:
+    name: Busfahrplan
+    
+  event:
+    name: Veranstaltungen
+    
+  faq:
+    name: FAQs
+    
+  menu:
+    name: Mensaplan
+   
+  news:
+    name: Neuigkeiten
+    
+  sportscourse:
+    name: Hochschulsport

@@ -1,3 +1,7 @@
 facultyinfo_thirdparty_overview:
     pattern:  /
     defaults: { _controller: FacultyInfoThirdPartyDataBundle:Overview:index }
+
+facultyinfo_thirdparty_update:
+    pattern:  /{id}
+    defaults: { _controller: FacultyInfoThirdPartyDataBundle:Update:index }

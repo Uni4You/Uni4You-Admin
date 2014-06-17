@@ -16,5 +16,102 @@
 {% endblock %}
 
 {% block content %}
-	
+	<table style="width: 100%">
+		<tr>
+			<th>{% trans %}thirdParty.columns.name{% endtrans %}</th>
+			<th>{% trans %}thirdParty.columns.lastUpdate{% endtrans %}</th>
+			<th>{% trans %}thirdParty.columns.status{% endtrans %}</th>
+			<th></th>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}thirdParty.busline.name{% endtrans %}</td>
+			<td>{{ busline.lastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if busline.lastStatuscode == 0 %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : busline.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}thirdParty.event.name{% endtrans %}</td>
+			<td>{{ event.lastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if event.lastStatuscode == 0 %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : event.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}thirdParty.faq.name{% endtrans %}</td>
+			<td>{{ faq.lastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if faq.lastStatuscode == 0 %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : faq.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}thirdParty.menu.name{% endtrans %}</td>
+			<td>{{ menu.lastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if menu.lastStatuscode == 0 %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : menu.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			</td>
+		</tr>	
+		
+		<tr>
+			<td>{% trans %}thirdParty.news.name{% endtrans %}</td>
+			<td>{{ news.lastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if news.lastStatuscode == 0 %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : news.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}thirdParty.sportscourse.name{% endtrans %}</td>
+			<td>{{ sportscourse.lastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if sportscourse.lastStatuscode == 0 %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : sportscourse.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+			</td>
+		</tr>	
+	</table>
 {% endblock %}

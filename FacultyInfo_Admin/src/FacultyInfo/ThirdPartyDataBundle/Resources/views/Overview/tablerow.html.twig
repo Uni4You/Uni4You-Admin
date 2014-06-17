@@ -1,0 +1,15 @@
+<tr>
+	<td>{{ nameTrans|trans }}</td>
+	<td>{{ lastUpdate|date('d.m.Y H:i') }}</td>
+	<td>
+		{% if lastStatuscode == 0 %}
+			<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+		{% else %}
+			<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+		{% endif %}		
+	</td>
+	<td>
+		<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+		<a href=""><img class="tableButton" src="{{ asset('img/buttons/reload.png') }}" /></a>
+	</td>
+</tr>

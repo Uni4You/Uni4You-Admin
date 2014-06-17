@@ -216,14 +216,14 @@ img.success {
 	background-color: rgb(199, 255, 173);
 	border: rgb(0, 160, 13) solid 1px;
 	border-radius: 3px;
-	padding: 4px;
+	padding: 9px;
 }
 
 img.error {
 	background-color: #ffebe8;
 	border: #c00 solid 1px;
 	border-radius: 3px;
-	padding: 4px;
+	padding: 9px;
 }
 
 img.tableButton {

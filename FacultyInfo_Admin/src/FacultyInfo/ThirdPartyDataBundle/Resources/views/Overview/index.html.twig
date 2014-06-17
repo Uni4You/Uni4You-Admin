@@ -24,94 +24,29 @@
 			<th></th>
 		</tr>
 		
-		<tr>
-			<td>{% trans %}thirdParty.busline.name{% endtrans %}</td>
-			<td>{{ busline.lastUpdate|date('d.m.Y H:i') }}</td>
-			<td>
-				{% if busline.lastStatuscode == 0 %}
-					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
-				{% else %}
-					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
-				{% endif %}		
-			</td>
-			<td>
-				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : busline.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-			</td>
-		</tr>
+		{% if busline %}
+			{{ include('FacultyInfoThirdPartyDataBundle:Overview:tablerow.html.twig', {'nameTrans' : 'thirdParty.busline.name', 'name' : busline.name, 'lastUpdate' : busline.lastUpdate, 'lastStatuscode' : busline.lastStatuscode} ) }}
+		{% endif %}
 		
-		<tr>
-			<td>{% trans %}thirdParty.event.name{% endtrans %}</td>
-			<td>{{ event.lastUpdate|date('d.m.Y H:i') }}</td>
-			<td>
-				{% if event.lastStatuscode == 0 %}
-					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
-				{% else %}
-					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
-				{% endif %}		
-			</td>
-			<td>
-				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : event.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-			</td>
-		</tr>
+		{% if event %}
+			{{ include('FacultyInfoThirdPartyDataBundle:Overview:tablerow.html.twig', {'nameTrans' : 'thirdParty.event.name', 'name' : event.name, 'lastUpdate' : event.lastUpdate, 'lastStatuscode' : event.lastStatuscode} ) }}
+		{% endif %}
 		
-		<tr>
-			<td>{% trans %}thirdParty.faq.name{% endtrans %}</td>
-			<td>{{ faq.lastUpdate|date('d.m.Y H:i') }}</td>
-			<td>
-				{% if faq.lastStatuscode == 0 %}
-					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
-				{% else %}
-					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
-				{% endif %}		
-			</td>
-			<td>
-				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : faq.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-			</td>
-		</tr>
+		{% if faq %}
+			{{ include('FacultyInfoThirdPartyDataBundle:Overview:tablerow.html.twig', {'nameTrans' : 'thirdParty.faq.name', 'name' : faq.name, 'lastUpdate' : faq.lastUpdate, 'lastStatuscode' : faq.lastStatuscode} ) }}
+		{% endif %}
 		
-		<tr>
-			<td>{% trans %}thirdParty.menu.name{% endtrans %}</td>
-			<td>{{ menu.lastUpdate|date('d.m.Y H:i') }}</td>
-			<td>
-				{% if menu.lastStatuscode == 0 %}
-					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
-				{% else %}
-					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
-				{% endif %}		
-			</td>
-			<td>
-				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : menu.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-			</td>
-		</tr>	
+		{% if menu %}
+			{{ include('FacultyInfoThirdPartyDataBundle:Overview:tablerow.html.twig', {'nameTrans' : 'thirdParty.menu.name', 'name' : menu.name, 'lastUpdate' : menu.lastUpdate, 'lastStatuscode' : menu.lastStatuscode} ) }}
+		{% endif %}
 		
-		<tr>
-			<td>{% trans %}thirdParty.news.name{% endtrans %}</td>
-			<td>{{ news.lastUpdate|date('d.m.Y H:i') }}</td>
-			<td>
-				{% if news.lastStatuscode == 0 %}
-					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
-				{% else %}
-					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
-				{% endif %}		
-			</td>
-			<td>
-				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : news.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-			</td>
-		</tr>
+		{% if news %}
+			{{ include('FacultyInfoThirdPartyDataBundle:Overview:tablerow.html.twig', {'nameTrans' : 'thirdParty.news.name', 'name' : news.name, 'lastUpdate' : news.lastUpdate, 'lastStatuscode' : news.lastStatuscode} ) }}
+		{% endif %}
 		
-		<tr>
-			<td>{% trans %}thirdParty.sportscourse.name{% endtrans %}</td>
-			<td>{{ sportscourse.lastUpdate|date('d.m.Y H:i') }}</td>
-			<td>
-				{% if sportscourse.lastStatuscode == 0 %}
-					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
-				{% else %}
-					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
-				{% endif %}		
-			</td>
-			<td>
-				<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : sportscourse.name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-			</td>
-		</tr>	
+		{% if sportscourse %}
+			{{ include('FacultyInfoThirdPartyDataBundle:Overview:tablerow.html.twig', {'nameTrans' : 'thirdParty.sportscourse.name', 'name' : sportscourse.name, 'lastUpdate' : sportscourse.lastUpdate, 'lastStatuscode' : sportscourse.lastStatuscode} ) }}
+		{% endif %}
+
 	</table>
 {% endblock %}

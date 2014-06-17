@@ -1,0 +1,18 @@
+FacultyInfo\ThirdPartyDataBundle\Entity\Metadata:
+  type: entity
+  table: metadata
+  id:
+    name:
+      type: string
+      length: 100
+      
+  fields:
+    isThirdPartyData:
+      type: boolean
+    lastStatuscode:
+      type: integer
+    lastUpdate:
+      type: datetime
+    sourceUrl:
+      type: string
+      length: 10000

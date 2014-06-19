@@ -1,0 +1,23 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ person.name }}{% endblock %}
+{% block header %}{{ person.name }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.contact.person.update.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.contact.name', 'target': url('facultyinfo_firstparty_contact_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': person.group.title|length > 30 ? person.group.title|slice(0, 30) ~ '...' : person.group.title, 'target': url('facultyinfo_firstparty_contact_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': person.name, 'target': url('facultyinfo_firstparty_contact_person_update', { 'personId' : person.id}) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	{{ form(form) }}
+{% endblock %}

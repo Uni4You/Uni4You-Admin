@@ -1,0 +1,21 @@
+FacultyInfo\FirstPartyDataBundle\Entity\ContactGroup:
+  type: entity
+  table: contactgroups
+  id:
+    id:
+      type: string
+      length: 40
+      
+  fields:
+    title:
+      type: string
+      length: 1000
+    description:
+      type: string
+      length: 5000
+      
+  oneToMany:
+    persons:
+      targetEntity: ContactPerson
+      mappedBy: group
+      cascade: ["remove"]

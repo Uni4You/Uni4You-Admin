@@ -67,5 +67,53 @@ firstParty:
   businesshours:
     name: Öffnungszeiten
     
-  contactperson:
+  contact:
     name: Ansprechpartner
+    title: Ansprechpartner
+    header: Ansprechpartner
+    subheader: Übersicht
+    newPerson: Neues Lehrstuhl-Mitglied anlegen...
+    newGroup: Neuen Lehrstuhl anlegen...
+    
+    overview:
+      columns:
+        name: Lehrstuhl oder Person
+        
+    group:
+      labels:
+        title: Titel
+        description: Beschreibung
+        
+      create:
+        title: Neuer Lehrstuhl
+        header: Neuer Lehrstuhl
+        subheader: bei den Ansprechpartnern
+        successful: Der Lehrstuhl %title% wurde erfolgreich angelegt.
+        
+      delete:
+        successful: Der Lehrstuhl %title% wurde erfolgreich gelöscht.
+        
+      update:
+        subheader: Bearbeiten
+        successful: Der Lehrstuhl %title% wurde erfolgreich geändert.
+        
+    person:
+      labels:
+        name: Name
+        description: Beschreibung
+        office: Büro
+        phone: Telefon
+        email: Email
+        
+      create:
+        title: Neue Person
+        header: Neue Person
+        subheader: zum Lehrstuhl %title%
+        successful: Die Person %name% wurde erfolgreich angelegt.
+        
+      delete:
+        successful: Die Person %name% wurde erfolgreich gelöscht.
+        
+      update:
+        subheader: Bearbeiten
+        successful: Die Person %name% wurde erfolgreich geändert.

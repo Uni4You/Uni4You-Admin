@@ -1,0 +1,32 @@
+FacultyInfo\FirstPartyDataBundle\Entity\ContactPerson:
+  type: entity
+  table: contactpersons
+  id:
+    id:
+      type: string
+      length: 40
+      
+  fields:
+    name:
+      type: string
+      length: 1000
+    office:
+      type: string
+      length: 1000
+    phone:
+      type: string
+      length: 1000
+    email:
+      type: string
+      length: 1000
+    description:
+      type: string
+      length: 5000
+      
+  manyToOne:
+    group:
+      targetEntity: ContactGroup
+      inversedBy: persons
+      joinColumn:
+        name: contactGroup
+        referencedColumn: id

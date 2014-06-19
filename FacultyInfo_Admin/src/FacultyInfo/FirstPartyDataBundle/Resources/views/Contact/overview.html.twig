@@ -1,0 +1,49 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}firstParty.contact.name{% endtrans %}{% endblock %}
+{% block header %}{% trans %}firstParty.contact.name{% endtrans %}{% endblock %}
+{% block subheader %}{% trans %}firstParty.contact.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'firstParty.contact.name', 'target': url('facultyinfo_firstparty_contact_overview') } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<table style="width: 100%">
+		<tr>
+			<th colspan="2">{% trans %}firstParty.contact.overview.columns.name{% endtrans %}</th>
+			<th></th>
+		</tr>
+
+		{% for group in groups %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Contact:tablerowFirstDeg.html.twig', {'title' : group.title, 'description' : group.description|length > 50 ? group.description|slice(0, 50) ~ '...' : group.description, 'id' : group.id} ) }}
+	
+			{% for person in group.persons %}
+				{{ include('FacultyInfoFirstPartyDataBundle:Contact:tablerowSecondDeg.html.twig', {'name' : person.name, 'description' : person.description|length > 50 ? person.description|slice(0, 50) ~ '...' : person.description, 'id' : person.id} ) }}
+			{% endfor %}
+			
+			<tr>
+				<td class="indent"></td>
+				<td colspan="2">
+					<a href="{{ url('facultyinfo_firstparty_contact_person_create', {'groupId' : group.id } ) }}">{% trans with { '%title%' : group.title} %}firstParty.contact.newPerson{% endtrans %}</a>
+				</td>
+			</tr>
+		{% endfor %}
+		
+		<tr>
+			<td colspan="3">
+				<a href="{{ url('facultyinfo_firstparty_contact_group_create') }}">{% trans %}firstParty.contact.newGroup{% endtrans %}</a>
+			</td>
+		</tr>
+	
+	</table>
+
+{% endblock %}

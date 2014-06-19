@@ -1,0 +1,8 @@
+<tr>
+	<td class="indent"></td>
+	<td>{{ name }}</td>
+	<td>
+		<a href="{{ url('facultyinfo_firstparty_contact_person_update', { 'personId' : id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+		<a href="{{ url('facultyinfo_firstparty_contact_person_delete', {'personId' : id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
+	</td>
+</tr>

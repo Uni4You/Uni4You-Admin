@@ -1,3 +1,47 @@
 facultyinfo_firstparty_overview:
     pattern:  /
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:Overview:index }
+    
+facultyinfo_firstparty_mapmarker_overview:
+    pattern:  /mapmarker
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:overview }
+    
+facultyinfo_firstparty_mapmarker_category_create:
+    pattern:  /mapmarker/category/create
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:createSuper }
+    
+facultyinfo_firstparty_mapmarker_category_create_sub:
+    pattern:  /mapmarker/category/create/{superCategoryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:createSub }
+    
+facultyinfo_firstparty_mapmarker_category_delete:
+    pattern:  /mapmarker/category/delete/{categoryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:delete }
+    
+facultyinfo_firstparty_mapmarker_category_update:
+    pattern:  /mapmarker/category/update/{categoryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:update }
+    
+facultyinfo_firstparty_mapmarker_category:
+    pattern:  /mapmarker/category/{categoryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:details }
+    
+facultyinfo_firstparty_mapmarker_entry_create:
+    pattern:  /mapmarker/entry/create/{categoryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:create }
+    
+facultyinfo_firstparty_mapmarker_entry_delete:
+    pattern:  /mapmarker/entry/delete/{entryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:delete }
+    
+facultyinfo_firstparty_mapmarker_entry:
+    pattern:  /mapmarker/entry/{entryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:update }
+
+facultyinfo_firstparty_businesshours_overview:
+    pattern:  /businesshours
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:overview }
+
+facultyinfo_firstparty_contactperson_overview:
+    pattern:  /contactperson
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Contactperson:overview }

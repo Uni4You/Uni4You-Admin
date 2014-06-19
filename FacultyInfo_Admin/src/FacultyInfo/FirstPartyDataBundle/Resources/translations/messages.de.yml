@@ -3,3 +3,69 @@ firstParty:
   header: Eigene Daten
   subheader: Übersicht
   
+  columns:
+    name: Modul
+    lastUpdate: Letzte Änderung
+    
+  mapmarker:
+    name: Lageplan
+    newCategory: Neue Kategorie anlegen...
+    newSubCategory: Neue Unterkategorie zu %title% anlegen...
+    
+    overview:
+      columns:
+        name: Kategorie
+        count: Anzahl der Einträge
+        
+      count: %entries% Einträge
+        
+    category:
+      subheader: Einträge
+      newEntry: Neuen Eintrag anlegen...
+      
+      columns:
+        name: Name
+        description: Beschreibung
+        
+      create:
+        title: Neue Kategorie
+        header: Neue Kategorie
+        headerForSub: Neue Unterkategorie
+        subheader: für den Lageplan
+        subheaderForSub: zur Kategorie %superCategoryTitle% im Lageplan
+        successful: Die Kategorie %title% wurde erfolgreich angelegt.
+        labels:
+          title: Titel
+          
+      delete:
+        successful: Die Kategorie %title% wurde erfolgreich gelöscht.
+        
+      update:
+        subheader: Bearbeiten
+        successful: Die Kategory %title% wurde erfolgreich bearbeitet.
+    
+    entry:
+      labels:
+        name: Name
+        description: Beschreibung
+        latitude: Breitengrad
+        longitude: Längengrad
+        
+      create:
+        title: Neuer Eintrag
+        header: Neuer Eintrag
+        subheader: zur Kategorie %category% im Lageplan
+        successful: Der Eintrag %name% wurde erfolgreich angelegt.
+        
+      update:
+        subheader: Bearbeiten
+        successful: Der Eintrag %name% wurde erfolgreich geändert.
+        
+      delete:
+        successful: Der Eintrag %name% wurde erfolgreich gelöscht.
+    
+  businesshours:
+    name: Öffnungszeiten
+    
+  contactperson:
+    name: Ansprechpartner

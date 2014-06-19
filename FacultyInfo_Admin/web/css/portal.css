@@ -133,6 +133,9 @@ form.portalForm input[type="text"], form.portalForm input[type="email"], form.po
 	width: 282px !important;
 	resize: none;
 }
+form.portalForm input[type="textarea"], form.portalForm textarea {
+	height: 100px !important;
+}
 form.portalForm input[type="submit"] {
 	min-width: 110px;
 }
@@ -194,6 +197,9 @@ input + label > span.required {
 	-webkit-box-shadow: 0 0 4px rgba(82,168,236,.5);
 }
 
+table {
+	border-collapse: collapse;
+}
 th {
 	font-family: 'Oswald', sans-serif;
 	font-size: 22px;
@@ -201,15 +207,28 @@ th {
 	border-bottom: 2px solid #eee;
 	padding-bottom: 10px;
 }
-
 td {
 	border-bottom: 1px solid #eee;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	height: 25px;
 }
 
 td.specialRow {
 	font-weight: 700;
+}
+td.indent {
+	width: 80px;
+	border-bottom: 0px;
+}
+td.groupingRow {
+	border-top: 2px solid #eee;
+	font-weight: 700;
+}
+
+div.tableButtonSpacer {
+	width: 45px;
+	display: inline-block;
 }
 
 img.success {
@@ -217,6 +236,7 @@ img.success {
 	border: rgb(0, 160, 13) solid 1px;
 	border-radius: 3px;
 	padding: 9px;
+	width: 15px;
 }
 
 img.error {
@@ -224,6 +244,7 @@ img.error {
 	border: #c00 solid 1px;
 	border-radius: 3px;
 	padding: 9px;
+	width: 15px;
 }
 
 img.tableButton {
@@ -232,6 +253,7 @@ img.tableButton {
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	margin-right: 10px;
+	width: 25px;
 }
 img.tableIcon {
 	padding: 5px;

@@ -1,0 +1,27 @@
+FacultyInfo\FirstPartyDataBundle\Entity\Mapmarker:
+  type: entity
+  table: mapmarkers
+  id:
+    id:
+      type: string
+      length: 40
+      
+  fields:
+    name:
+      type: string
+      length: 1000
+    description:
+      type: string
+      length: 5000
+    latitude:
+      type: float
+    longitude:
+      type: float
+      
+  manyToOne:
+    category:
+      targetEntity: MapmarkerCategory
+      inversedBy: mapmarkers
+      joinColumn:
+        name: category
+        referencedColumn: id

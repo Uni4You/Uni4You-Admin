@@ -1,0 +1,40 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ category.title }}{% endblock %}
+{% block header %}{{ category.title }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.mapmarker.category.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.mapmarker.name', 'target': url('facultyinfo_firstparty_mapmarker_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': category.superCategory.title, 'target': url('facultyinfo_firstparty_mapmarker_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': category.title, 'target': url('facultyinfo_firstparty_mapmarker_category', {'categoryId' : category.id}) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<table style="width: 100%">
+		<tr>
+			<th>{% trans %}firstParty.mapmarker.category.columns.name{% endtrans %}</th>
+			<th>{% trans %}firstParty.mapmarker.category.columns.description{% endtrans %}</th>
+			<th></th>
+		</tr>
+
+		{% for marker in category.mapmarkers %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Mapmarker:tablerowMarker.html.twig', {'name' : marker.name, 'description' : marker.description|length > 50 ? marker.description|slice(0, 50) ~ '...' : marker.description, 'id' : marker.id } ) }}
+		{% endfor %}
+		
+		<tr>
+			<td colspan="3">
+				<a href="{{ url('facultyinfo_firstparty_mapmarker_entry_create', {'categoryId' : category.id } ) }}">{% trans %}firstParty.mapmarker.category.newEntry{% endtrans %}</a>
+			</td>
+		</tr>
+	</table>
+
+{% endblock %}

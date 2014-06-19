@@ -1,0 +1,30 @@
+FacultyInfo\FirstPartyDataBundle\Entity\MapmarkerCategory:
+  type: entity
+  table: mapmarkercategories
+  id:
+    id:
+      type: string
+      length: 40
+      
+  fields:
+    title:
+      type: string
+      length: 1000
+      
+  oneToMany:
+    subCategories:
+      targetEntity: MapmarkerCategory
+      mappedBy: superCategory
+      cascade: ["remove"]
+    mapmarkers:
+      targetEntity: Mapmarker
+      mappedBy: category
+      cascade: ["remove"]
+      
+  manyToOne:
+    superCategory:
+      targetEntity: MapmarkerCategory
+      inversedBy: subCategories
+      joinColumn:
+        name: superCategory
+        referencedColumn: id

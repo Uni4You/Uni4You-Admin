@@ -1,7 +1,0 @@
-account:
-   error:
-      invalidFormat: Dateiformat ungültig!
-
-ep:
-   error:
-      maxDurationLessMin: Die Maximaldauer des Praktikums muss größer oder gleich der Minimaldauer sein!

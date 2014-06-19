@@ -25,7 +25,14 @@ class OverviewController extends Controller {
 				$sportscourse = $module;
 		}
 
-		return $this -> render('FacultyInfoThirdPartyDataBundle:Overview:index.html.twig', array('busline' => isset($busline) ? $busline : null, 'event' => isset($event) ? $event : null, 'faq' => isset($faq) ? $faq : null, 'menu' => isset($menu) ? $menu : null, 'news' => isset($menu) ? $menu : null, 'news' => isset($news) ? $news : null, 'sportscourse' => isset($sportscourse) ? $sportscourse : null));
+		$busline = isset($busline) ? $busline : null;
+		$event = isset($event) ? $event : null;
+		$faq = isset($faq) ? $faq : null;
+		$menu = isset($menu) ? $menu : null;
+		$news = isset($news) ? $news : null;
+		$sportscourse = isset($sportscourse) ? $sportscourse : null;
+
+		return $this -> render('FacultyInfoThirdPartyDataBundle:Overview:index.html.twig', array('busline' => $busline, 'event' => $event, 'faq' => $faq, 'menu' => $menu, 'news' => $news, 'sportscourse' => $sportscourse));
 	}
 
 }

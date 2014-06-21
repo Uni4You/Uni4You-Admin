@@ -38,10 +38,6 @@ facultyinfo_firstparty_mapmarker_entry:
     pattern:  /mapmarker/entry/{entryId}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:update }
 
-facultyinfo_firstparty_businesshours_overview:
-    pattern:  /businesshours
-    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:overview }
-
 facultyinfo_firstparty_contact_overview:
     pattern:  /contact
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:overview }
@@ -69,3 +65,23 @@ facultyinfo_firstparty_contact_person_delete:
 facultyinfo_firstparty_contact_person_update:
     pattern:  /contact/person/{personId}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactPerson:update }
+    
+facultyinfo_firstparty_businesshours_overview:
+    pattern:  /businesshours
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:overview }
+    
+facultyinfo_firstparty_businesshours_delete:
+    pattern:  /businesshours/delete/{facilityId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:delete }
+    
+facultyinfo_firstparty_businesshours_create_library:
+    pattern:  /businesshours/create/library
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:createLibrary }
+    
+facultyinfo_firstparty_businesshours_create_cafeteria:
+    pattern:  /businesshours/create/cafeteria
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:createCafeteria }
+    
+facultyinfo_firstparty_businesshours_update:
+    pattern:  /businesshours/{facilityId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:update }

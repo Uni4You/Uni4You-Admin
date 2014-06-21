@@ -13,5 +13,46 @@
 {% endblock %}
 
 {% block content %}
-	
+	<table style="width: 100%">
+		<tr>
+			<th>{% trans %}dashboard.columns.name{% endtrans %}</th>
+			<th>{% trans %}dashboard.columns.lastUpdate{% endtrans %}</th>
+			<th>{% trans %}dashboard.columns.status{% endtrans %}</th>
+			<th></th>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}dashboard.firstParty{% endtrans %}</td>
+			<td>{{ firstPartyLastUpdate|date('d.m.Y H:i') }}</td>
+			<td></td>
+			<td>
+				<a href="{{ url('facultyinfo_firstparty_overview') }}"><img class="tableButton" src="{{ asset('img/buttons/detail.png') }}" /></a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}dashboard.thirdParty{% endtrans %}</td>
+			<td>{{ thirdPartyLastUpdate|date('d.m.Y H:i') }}</td>
+			<td>
+				{% if thirdPartyStatus %}
+					<img src="{{ asset('img/buttons/check.png') }}" class="success" />
+				{% else %}
+					<img src="{{ asset('img/buttons/error.png') }}" class="error" />
+				{% endif %}		
+			</td>
+			<td>
+				<a href="{{ url('facultyinfo_thirdparty_overview') }}"><img class="tableButton" src="{{ asset('img/buttons/detail.png') }}" /></a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>{% trans %}dashboard.user{% endtrans %}</td>
+			<td></td>
+			<td></td>
+			<td>
+				<a href="{{ url('facultyinfo_user_overview') }}"><img class="tableButton" src="{{ asset('img/buttons/detail.png') }}" /></a>
+			</td>
+		</tr>
+		
+	</table>
 {% endblock %}

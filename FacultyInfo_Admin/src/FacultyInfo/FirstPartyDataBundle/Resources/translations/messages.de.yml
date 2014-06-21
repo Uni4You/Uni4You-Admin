@@ -66,7 +66,52 @@ firstParty:
     
   businesshours:
     name: Öffnungszeiten
+    subheader: Übersicht
+    libraries: Bibliotheken
+    cafeterias: Cafeterien und Mensen
+    newLibrary: Neue Bibliothek anlegen...
+    newCafeteria: Neue Cafeteria oder Mensa anlegen...
     
+    wholeYear: Ganzjährig
+    semester: Vorlesungszeit
+    break: Vorlesungsfreie Zeit
+    
+    monday: Montag
+    tuesday: Dienstag
+    wednesday: Mittwoch
+    thursday: Donnerstag
+    friday: Freitag
+    saturday: Samstag
+    sunday: Sonntag
+    
+    overview:
+      columns:
+        name: Name der Einrichtung
+        
+    update:
+      subheader: Bearbeiten
+      successful: Die Einrichtung %name% wurde erfolgreich geändert.
+      columns:
+        name: Wochentag
+        open: Geöffnet?
+        from: Offen von...
+        till: ...bis
+        
+    create:
+      library:
+        title: Neue Bibliothek
+        header: Neue Bibliothek
+        subheader: zu den Öffnungszeiten hinzufügen
+        successful: Die Bibliothek %name% wurde erfolgreich angelegt.
+      cafeteria:
+        title: Neue Cafeteria oder Mensa
+        header: Neue Cafeteria oder Mensa
+        subheader: zu den Öffnungszeiten hinzufügen
+        successful: Die Cafeteria bzw. Mensa %name% wurde erfolgreich angelegt.
+      
+    delete:
+      successful: Die Einrichtung %name% wurde erfolgreich gelöscht.
+      
   contact:
     name: Ansprechpartner
     title: Ansprechpartner

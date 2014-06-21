@@ -3,3 +3,13 @@ dashboard:
   header: Hallo %name%!
   subheader: Willkommen auf dem Administrations-Panel für Uni4You.
   
+  user: Benutzerverwaltung
+  firstParty: Eigene Daten
+  thirdParty: Fremdbeschaffte Daten
+  
+  columns:
+    name: Bereich
+    lastUpdate: Letztes Update
+    status: Status
+  
+  

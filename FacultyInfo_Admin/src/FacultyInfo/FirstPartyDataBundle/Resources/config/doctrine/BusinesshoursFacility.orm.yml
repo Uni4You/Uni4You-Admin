@@ -1,0 +1,20 @@
+FacultyInfo\FirstPartyDataBundle\Entity\BusinesshoursFacility:
+  type: entity
+  table: businesshoursfacilities
+  id:
+    id:
+      type: string
+      length: 40
+      
+  fields:
+    name:
+      type: string
+      length: 1000
+    type:
+      type: integer
+      
+  oneToMany:
+    businesshours:
+      targetEntity: Businesshours
+      mappedBy: facility
+      cascade: ["remove", "persist"]

@@ -1,0 +1,54 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}firstParty.businesshours.name{% endtrans %}{% endblock %}
+{% block header %}{% trans %}firstParty.businesshours.name{% endtrans %}{% endblock %}
+{% block subheader %}{% trans %}firstParty.businesshours.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'firstParty.businesshours.name', 'target': url('facultyinfo_firstparty_businesshours_overview') } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<table style="width: 100%">
+		<tr>
+			<th colspan="2">{% trans %}firstParty.businesshours.overview.columns.name{% endtrans %}</th>
+			<th></th>
+		</tr>
+		
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:tablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.libraries'} ) }}
+
+		{% for library in libraries %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:tablerowSecondDeg.html.twig', {'name' : library.name, 'id' : library.id} ) }}
+		{% endfor %}
+		
+		<tr>
+			<td class="indent"></td>
+			<td colspan="2">
+				<a href="{{ url('facultyinfo_firstparty_businesshours_create_library') }}">{% trans %}firstParty.businesshours.newLibrary{% endtrans %}</a>
+			</td>
+		</tr>
+		
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:tablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.cafeterias'} ) }}
+		
+		{% for cafeteria in cafeterias %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:tablerowSecondDeg.html.twig', {'name' : cafeteria.name, 'id' : cafeteria.id} ) }}
+		{% endfor %}
+		
+		<tr>
+			<td class="indent"></td>
+			<td colspan="2">
+				<a href="{{ url('facultyinfo_firstparty_businesshours_create_cafeteria') }}">{% trans %}firstParty.businesshours.newCafeteria{% endtrans %}</a>
+			</td>
+		</tr>
+	
+	</table>
+
+{% endblock %}

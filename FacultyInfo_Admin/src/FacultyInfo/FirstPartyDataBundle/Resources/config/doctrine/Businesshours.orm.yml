@@ -1,0 +1,27 @@
+FacultyInfo\FirstPartyDataBundle\Entity\Businesshours:
+  type: entity
+  table: businesshours
+  id:
+    id:
+      type: string
+      length: 40
+      
+  fields:
+    dayofweek:
+      type: integer
+    phase:
+      type: integer
+    status:
+      type: integer
+    openingtime:
+      type: time
+    closingtime:
+      type: time
+      
+  manyToOne:
+    facility:
+      targetEntity: BusinesshoursFacility
+      inversedBy: businesshours
+      joinColumn:
+        name: facility
+        referencedColumn: id

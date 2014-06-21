@@ -1,0 +1,66 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ facility.name }}{% endblock %}
+{% block header %}{{ facility.name }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.businesshours.update.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.businesshours.name', 'target': url('facultyinfo_firstparty_businesshours_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': facility.name, 'target': url('facultyinfo_firstparty_businesshours_update', { 'facilityId' : facility.id}) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	{{ form_start(form) }}
+	
+	{{ form_row(form.name) }}
+	
+	<div class="divider-border" style="margin-top: 20px; margin-bottom: 20px"></div>
+	
+	<table style="width: 100%">
+		<tr>
+			<th colspan="2">{% trans %}firstParty.businesshours.update.columns.name{% endtrans %}</th>
+			<th>{% trans %}firstParty.businesshours.update.columns.open{% endtrans %}</th>
+			<th>{% trans %}firstParty.businesshours.update.columns.from{% endtrans %}</th>
+			<th>{% trans %}firstParty.businesshours.update.columns.till{% endtrans %}</th>
+		</tr>
+		
+		{% if facility.type == 1 %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.semester'} ) }}
+		{% else %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.wholeYear'} ) }}
+		{% endif %}
+		
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.monday', 'open' : form.semesterMonday.open, 'from' : form.semesterMonday.openingtime, 'till' : form.semesterMonday.closingtime } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.tuesday', 'open' : form.semesterTuesday.open, 'from' : form.semesterTuesday.openingtime, 'till' : form.semesterTuesday.closingtime } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.wednesday', 'open' : form.semesterWednesday.open, 'from' : form.semesterWednesday.openingtime, 'till' : form.semesterWednesday.closingtime } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.thursday', 'open' : form.semesterThursday.open, 'from' : form.semesterThursday.openingtime, 'till' : form.semesterThursday.closingtime } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.friday', 'open' : form.semesterFriday.open, 'from' : form.semesterFriday.openingtime, 'till' : form.semesterFriday.closingtime } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.saturday', 'open' : form.semesterSaturday.open, 'from' : form.semesterSaturday.openingtime, 'till' : form.semesterSaturday.closingtime } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.sunday', 'open' : form.semesterSunday.open, 'from' : form.semesterSunday.openingtime, 'till' : form.semesterSunday.closingtime } ) }}
+		
+		{% if facility.type == 1 %}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.break'} ) }}
+		
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.monday', 'open' : form.breakMonday.open, 'from' : form.breakMonday.openingtime, 'till' : form.breakMonday.closingtime } ) }}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.tuesday', 'open' : form.breakTuesday.open, 'from' : form.breakTuesday.openingtime, 'till' : form.breakTuesday.closingtime } ) }}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.wednesday', 'open' : form.breakWednesday.open, 'from' : form.breakWednesday.openingtime, 'till' : form.breakWednesday.closingtime } ) }}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.thursday', 'open' : form.breakThursday.open, 'from' : form.breakThursday.openingtime, 'till' : form.breakThursday.closingtime } ) }}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.friday', 'open' : form.breakFriday.open, 'from' : form.breakFriday.openingtime, 'till' : form.breakFriday.closingtime } ) }}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.saturday', 'open' : form.breakSaturday.open, 'from' : form.breakSaturday.openingtime, 'till' : form.breakSaturday.closingtime } ) }}
+			{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.sunday', 'open' : form.breakSunday.open, 'from' : form.breakSunday.openingtime, 'till' : form.breakSunday.closingtime } ) }}
+		{% endif %}
+		
+	</table>
+	
+	<div class="divider-border" style="margin-top: 20px; margin-bottom: 20px"></div>
+	
+	{{ form_rest(form) }}
+{% endblock %}

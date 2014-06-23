@@ -1,8 +1,8 @@
 <tr>
 	<td colspan="3" class="groupingRow">{{ title }}</td>
 	<td class="groupingRow">
-		<div class="tableButtonSpacer">&nbsp;</div>
-		<a href="{{ url('facultyinfo_firstparty_mapmarker_category_update', { 'categoryId' : id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-		<a href="{{ url('facultyinfo_firstparty_mapmarker_category_delete', { 'categoryId' : id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
+		{{ include(':Button:spacer.html.twig') }}
+		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_update', { 'categoryId' : id } ) } ) }}
+		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_delete', { 'categoryId' : id } ) } ) }}
 	</td>
 </tr>

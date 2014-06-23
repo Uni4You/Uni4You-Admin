@@ -9,8 +9,8 @@
 		{% endif %}		
 	</td>
 	<td>
-		<a href="{{ url('facultyinfo_thirdparty_update', { 'id' : name } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-		<a id="{{ name }}ReloadButton" class="reloadButton" href="javascript:void(0)" onclick="loadData('http://lvps176-28-10-221.dedicated.hosteurope.de/load/{{ name }}', '{{ name }}')"><img class="tableButton" src="{{ asset('img/buttons/reload.png') }}" /></a>
+		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_thirdparty_update', { 'id' : name } ) } ) }}
+		<a id="{{ name }}ReloadButton" class="reloadButton" href="javascript:void(0)" onclick="loadData('http://lvps176-28-10-221.dedicated.hosteurope.de/load/{{ name }}', '{{ name }}')" title="{% trans %}button.refresh{% endtrans %}"><img class="tableButton" src="{{ asset('img/buttons/reload.png') }}" /></a>
 		<img style="display:none" id="{{ name }}LoadingIndicator" class="tableIcon" src="{{ asset('img/buttons/loading.gif') }}" />
 	</td>
 </tr>

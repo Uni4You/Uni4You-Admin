@@ -26,7 +26,7 @@
 			<td>{{ firstPartyLastUpdate|date('d.m.Y H:i') }}</td>
 			<td></td>
 			<td>
-				<a href="{{ url('facultyinfo_firstparty_overview') }}"><img class="tableButton" src="{{ asset('img/buttons/detail.png') }}" /></a>
+				{{ include(':Button:detail.html.twig', { 'url' : url('facultyinfo_firstparty_overview') } ) }}
 			</td>
 		</tr>
 		
@@ -41,7 +41,7 @@
 				{% endif %}		
 			</td>
 			<td>
-				<a href="{{ url('facultyinfo_thirdparty_overview') }}"><img class="tableButton" src="{{ asset('img/buttons/detail.png') }}" /></a>
+				{{ include(':Button:detail.html.twig', { 'url' : url('facultyinfo_thirdparty_overview') } ) }}
 			</td>
 		</tr>
 		
@@ -50,7 +50,7 @@
 			<td></td>
 			<td></td>
 			<td>
-				<a href="{{ url('facultyinfo_user_overview') }}"><img class="tableButton" src="{{ asset('img/buttons/detail.png') }}" /></a>
+				{{ include(':Button:detail.html.twig', { 'url' : url('facultyinfo_user_overview') } ) }}
 			</td>
 		</tr>
 		

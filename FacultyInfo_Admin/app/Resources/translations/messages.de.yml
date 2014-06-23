@@ -22,3 +22,10 @@ form:
   saveFailed: Fehler beim Speichern der Daten.
   start:
     required: Pflichtfeld
+    
+button:
+  detail: Details
+  edit: Ändern
+  delete: Löschen
+  refresh: Neu laden
+  resetPassword: Passwort zurücksetzen

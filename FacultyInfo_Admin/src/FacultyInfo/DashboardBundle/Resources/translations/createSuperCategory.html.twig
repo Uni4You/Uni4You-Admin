@@ -1,0 +1,22 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}firstParty.mapmarker.category.create.title{% endtrans %}{% endblock %}
+{% block header %}{% trans %}firstParty.mapmarker.category.create.header{% endtrans %}{% endblock %}
+{% block subheader %}{% trans %}firstParty.mapmarker.category.create.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.mapmarker.name', 'target': url('facultyinfo_firstparty_mapmarker_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'firstParty.mapmarker.create.title', 'target': url('facultyinfo_firstparty_mapmarker_category_create') } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	{{ form(form) }}
+{% endblock %}

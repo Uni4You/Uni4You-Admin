@@ -27,7 +27,7 @@
 			<td class="specialRow">{{ me.name }}</td>
 			<td class="specialRow">{{ me.email }}</td>
 			<td class="specialRow">
-				<a href="{{ url('facultyinfo_user_update', { 'userId' : me.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
+				{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_user_update', { 'userId' : me.id } ) } ) }}
 			</td>
 		</tr>
 	
@@ -36,9 +36,9 @@
 				<td>{{ user.name }}</td>
 				<td>{{ user.email }}</td>
 				<td>
-					<a href="{{ url('facultyinfo_user_update', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/edit.png') }}" /></a>
-					<a href="{{ url('facultyinfo_user_delete', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/delete.png') }}" /></a>
-					<a href="{{ url('facultyinfo_user_reset', { 'userId' : user.id } ) }}"><img class="tableButton" src="{{ asset('img/buttons/reset_password.png') }}" /></a>
+					{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_user_update', { 'userId' : user.id } ) } ) }}
+					{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_user_delete', { 'userId' : user.id } ) } ) }}
+					{{ include(':Button:resetPassword.html.twig', { 'url' : url('facultyinfo_user_reset', { 'userId' : user.id } ) } ) }}
 				</td>
 			</tr>
 		{% endfor %}

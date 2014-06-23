@@ -42,7 +42,7 @@ firstParty:
         
       update:
         subheader: Bearbeiten
-        successful: Die Kategory %title% wurde erfolgreich bearbeitet.
+        successful: Die Kategorie %title% wurde erfolgreich bearbeitet.
     
     entry:
       labels:

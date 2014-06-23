@@ -12,6 +12,8 @@ FacultyInfo\FirstPartyDataBundle\Entity\BusinesshoursFacility:
       length: 1000
     type:
       type: integer
+    timestamp:
+      type: datetime
       
   oneToMany:
     businesshours:

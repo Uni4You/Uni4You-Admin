@@ -13,6 +13,8 @@ FacultyInfo\FirstPartyDataBundle\Entity\ContactGroup:
     description:
       type: string
       length: 5000
+    timestamp:
+      type: datetime
       
   oneToMany:
     persons:

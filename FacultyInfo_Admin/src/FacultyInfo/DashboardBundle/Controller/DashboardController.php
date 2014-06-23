@@ -21,10 +21,34 @@ class DashboardController extends Controller {
 			break;
 		}
 
-		$firstPartyLastUpdateRecord = $em -> getRepository('FacultyInfoThirdPartyDataBundle:Metadata') -> findBy(array('isThirdPartyData' => FALSE), array('lastUpdate' => 'desc'), 1);
-		$firstPartyLastUpdate = null;
-		foreach ($firstPartyLastUpdateRecord as $module) {
-			$firstPartyLastUpdate = $module -> getLastUpdate();
+		$records = $em -> getRepository('FacultyInfoFirstPartyDataBundle:Businesshours') -> findBy(array(), array('timestamp' => 'desc'), 1);
+		foreach ($records as $record) {
+			$firstPartyLastUpdate = $record -> getTimestamp();
+			break;
+		}
+		$records = $em -> getRepository('FacultyInfoFirstPartyDataBundle:BusinesshoursFacility') -> findBy(array(), array('timestamp' => 'desc'), 1);
+		foreach ($records as $record) {
+			$firstPartyLastUpdate = $record -> getTimestamp() > $firstPartyLastUpdate ? $record -> getTimestamp() : $firstPartyLastUpdate;
+			break;
+		}
+		$records = $em -> getRepository('FacultyInfoFirstPartyDataBundle:ContactPerson') -> findBy(array(), array('timestamp' => 'desc'), 1);
+		foreach ($records as $record) {
+			$firstPartyLastUpdate = $record -> getTimestamp() > $firstPartyLastUpdate ? $record -> getTimestamp() : $firstPartyLastUpdate;
+			break;
+		}
+		$records = $em -> getRepository('FacultyInfoFirstPartyDataBundle:ContactGroup') -> findBy(array(), array('timestamp' => 'desc'), 1);
+		foreach ($records as $record) {
+			$firstPartyLastUpdate = $record -> getTimestamp() > $firstPartyLastUpdate ? $record -> getTimestamp() : $firstPartyLastUpdate;
+			break;
+		}
+		$records = $em -> getRepository('FacultyInfoFirstPartyDataBundle:Mapmarker') -> findBy(array(), array('timestamp' => 'desc'), 1);
+		foreach ($records as $record) {
+			$firstPartyLastUpdate = $record -> getTimestamp() > $firstPartyLastUpdate ? $record -> getTimestamp() : $firstPartyLastUpdate;
+			break;
+		}
+		$records = $em -> getRepository('FacultyInfoFirstPartyDataBundle:MapmarkerCategory') -> findBy(array(), array('timestamp' => 'desc'), 1);
+		foreach ($records as $record) {
+			$firstPartyLastUpdate = $record -> getTimestamp() > $firstPartyLastUpdate ? $record -> getTimestamp() : $firstPartyLastUpdate;
 			break;
 		}
 

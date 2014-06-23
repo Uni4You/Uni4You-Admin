@@ -10,6 +10,8 @@ FacultyInfo\FirstPartyDataBundle\Entity\MapmarkerCategory:
     title:
       type: string
       length: 1000
+    timestamp:
+      type: datetime
       
   oneToMany:
     subCategories:

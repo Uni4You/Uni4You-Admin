@@ -22,6 +22,8 @@ FacultyInfo\FirstPartyDataBundle\Entity\ContactPerson:
     description:
       type: string
       length: 5000
+    timestamp:
+      type: datetime
       
   manyToOne:
     group:

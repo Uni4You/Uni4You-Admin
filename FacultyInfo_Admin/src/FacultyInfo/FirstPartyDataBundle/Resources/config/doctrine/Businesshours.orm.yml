@@ -17,6 +17,8 @@ FacultyInfo\FirstPartyDataBundle\Entity\Businesshours:
       type: time
     closingtime:
       type: time
+    timestamp:
+      type: datetime
       
   manyToOne:
     facility:

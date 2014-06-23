@@ -13,6 +13,7 @@ class ContactPerson {
 	private $phone;
 	private $email;
 	private $latitude;
+	private $timestamp;
 	
 	private $group;
 	
@@ -176,5 +177,28 @@ class ContactPerson {
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return ContactPerson
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 }

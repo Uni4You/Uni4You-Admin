@@ -12,6 +12,7 @@ class BusinesshoursFacility {
 	private $id;
 	private $name;
 	private $type;
+	private $timestamp;
 
 	private $businesshours;
 
@@ -242,4 +243,27 @@ class BusinesshoursFacility {
 	public function setBreakSunday(\FacultyInfo\FirstPartyDataBundle\Entity\Businesshours $breakSunday) {
 		$this->breakSunday = $breakSunday;
 	}
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return BusinesshoursFacility
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
 }

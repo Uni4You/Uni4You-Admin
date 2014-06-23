@@ -17,6 +17,8 @@ FacultyInfo\FirstPartyDataBundle\Entity\Mapmarker:
       type: float
     longitude:
       type: float
+    timestamp:
+      type: datetime
       
   manyToOne:
     category:

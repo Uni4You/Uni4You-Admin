@@ -23,6 +23,8 @@ class Businesshours {
 	private $dayofweek;
 	private $phase;
 	private $status;
+	private $timestamp;
+	
 	/**
 	 * @Assert\NotBlank(groups={"time_required"})
 	 */
@@ -189,4 +191,27 @@ class Businesshours {
 		return $this -> facility;
 	}
 
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return Businesshours
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
 }

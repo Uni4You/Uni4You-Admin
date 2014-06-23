@@ -9,6 +9,7 @@ class ContactGroup {
 	private $id;
 	private $title;
 	private $description;
+	private $timestamp;
 	
 	private $persons;
 	
@@ -120,5 +121,28 @@ class ContactGroup {
     public function getPersons()
     {
         return $this->persons;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return ContactGroup
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 }

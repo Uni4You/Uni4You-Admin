@@ -10,6 +10,7 @@ class MapmarkerCategory {
 	private $title;
 	private $subCategories;
 	private $mapmarkers;
+	private $timestamp;
 	
 	private $superCategory;
 	
@@ -154,5 +155,28 @@ class MapmarkerCategory {
     public function getSuperCategory()
     {
         return $this->superCategory;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return MapmarkerCategory
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 }

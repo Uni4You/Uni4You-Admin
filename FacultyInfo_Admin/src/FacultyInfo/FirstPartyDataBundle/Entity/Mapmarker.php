@@ -11,6 +11,7 @@ class Mapmarker {
 	private $description;
 	private $latitude;
 	private $longitude;
+	private $timestamp;
 	
 	private $category;
 	
@@ -151,5 +152,28 @@ class Mapmarker {
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     * @return Mapmarker
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
     }
 }

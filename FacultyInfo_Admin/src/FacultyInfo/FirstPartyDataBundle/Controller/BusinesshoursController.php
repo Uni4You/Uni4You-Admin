@@ -15,65 +15,42 @@ class BusinesshoursController extends Controller {
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:overview.html.twig', array('libraries' => $libraries, 'cafeterias' => $cafeterias));
 	}
 
-	public function createLibraryAction() {
-		$library = new BusinesshoursFacility();
-		$library -> setId($this -> generateUuid());
-		$library -> setType(BusinesshoursFacility::TYPE_LIBRARY);
-		$library -> setSemesterMonday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_MONDAY));
-		$library -> setSemesterTuesday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_TUESDAY));
-		$library -> setSemesterWednesday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_WEDNESDAY));
-		$library -> setSemesterThursday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_THURSDAY));
-		$library -> setSemesterFriday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_FRIDAY));
-		$library -> setSemesterSaturday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_SATURDAY));
-		$library -> setSemesterSunday($this -> constructBusinesshours($library, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_SUNDAY));
-
-		$form = $this -> createForm(new BusinesshoursFacilityType(), $library);
-		$form -> handleRequest(self::getRequest());
-
-		if ($form -> isValid()) {
-			$this -> mapFromForm($library);
-			$em = $this -> container -> get('doctrine') -> getManager();
-			$em -> persist($library);
-			$em -> flush();
-			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.businesshours.create.library.successful', array('%name%' => $library -> getName())));
-			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_businesshours_overview'));
-		} else {
-			if ($form -> isSubmitted()) {
-				$this -> get('session') -> getFlashBag() -> add('error', $this -> get('translator') -> trans('form.saveFailed'));
-			}
-		}
-
-		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:createLibrary.html.twig', array('form' => $form -> createView(), 'facility' => $library));
+	public function createCafeteriaAction() {
+		return $this -> doCreate(BusinesshoursFacility::TYPE_CAFETERIA);
 	}
 
-	public function createCafeteriaAction() {
-		$cafeteria = new BusinesshoursFacility();
-		$cafeteria -> setId($this -> generateUuid());
-		$cafeteria -> setType(BusinesshoursFacility::TYPE_CAFETERIA);
-		$cafeteria -> setSemesterMonday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_MONDAY));
-		$cafeteria -> setSemesterTuesday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_TUESDAY));
-		$cafeteria -> setSemesterWednesday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_WEDNESDAY));
-		$cafeteria -> setSemesterThursday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_THURSDAY));
-		$cafeteria -> setSemesterFriday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_FRIDAY));
-		$cafeteria -> setSemesterSaturday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_SATURDAY));
-		$cafeteria -> setSemesterSunday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_SUNDAY));
-		$cafeteria -> setBreakMonday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_MONDAY));
-		$cafeteria -> setBreakTuesday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_TUESDAY));
-		$cafeteria -> setBreakWednesday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_WEDNESDAY));
-		$cafeteria -> setBreakThursday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_THURSDAY));
-		$cafeteria -> setBreakFriday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_FRIDAY));
-		$cafeteria -> setBreakSaturday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_SATURDAY));
-		$cafeteria -> setBreakSunday($this -> constructBusinesshours($cafeteria, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_SUNDAY));
+	public function createLibraryAction() {
+		return $this -> doCreate(BusinesshoursFacility::TYPE_LIBRARY);
+	}
 
-		$form = $this -> createForm(new BusinesshoursFacilityType(), $cafeteria);
+	private function doCreate($type) {
+		$facility = new BusinesshoursFacility();
+		$facility -> setId($this -> generateUuid());
+		$facility -> setType($type);
+		$facility -> setSemesterMonday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_MONDAY));
+		$facility -> setSemesterTuesday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_TUESDAY));
+		$facility -> setSemesterWednesday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_WEDNESDAY));
+		$facility -> setSemesterThursday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_THURSDAY));
+		$facility -> setSemesterFriday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_FRIDAY));
+		$facility -> setSemesterSaturday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_SATURDAY));
+		$facility -> setSemesterSunday($this -> constructBusinesshours($facility, Businesshours::PHASE_SEMESTER, Businesshours::DAYOFWEEK_SUNDAY));
+		$facility -> setBreakMonday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_MONDAY));
+		$facility -> setBreakTuesday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_TUESDAY));
+		$facility -> setBreakWednesday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_WEDNESDAY));
+		$facility -> setBreakThursday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_THURSDAY));
+		$facility -> setBreakFriday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_FRIDAY));
+		$facility -> setBreakSaturday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_SATURDAY));
+		$facility -> setBreakSunday($this -> constructBusinesshours($facility, Businesshours::PHASE_BREAK, Businesshours::DAYOFWEEK_SUNDAY));
+
+		$form = $this -> createForm(new BusinesshoursFacilityType(), $facility);
 		$form -> handleRequest(self::getRequest());
 
 		if ($form -> isValid()) {
-			$this -> mapFromForm($cafeteria);
+			$this -> mapFromForm($facility);
 			$em = $this -> container -> get('doctrine') -> getManager();
-			$em -> persist($cafeteria);
+			$em -> persist($facility);
 			$em -> flush();
-			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.businesshours.create.cafeteria.successful', array('%name%' => $cafeteria -> getName())));
+			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.businesshours.create.successful', array('%name%' => $facility -> getName())));
 			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_businesshours_overview'));
 		} else {
 			if ($form -> isSubmitted()) {
@@ -81,7 +58,7 @@ class BusinesshoursController extends Controller {
 			}
 		}
 
-		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:createCafeteria.html.twig', array('form' => $form -> createView(), 'facility' => $cafeteria));
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:create.html.twig', array('form' => $form -> createView(), 'facility' => $facility, 'transGrp' => $type == BusinesshoursFacility::TYPE_LIBRARY ? 'library' : 'cafeteria'));
 	}
 
 	public function deleteAction($facilityId) {

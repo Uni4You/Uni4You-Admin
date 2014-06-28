@@ -98,16 +98,15 @@ firstParty:
         till: ...bis
         
     create:
+      successful: Die Einrichtung %name% wurde erfolgreich angelegt.
       library:
         title: Neue Bibliothek
         header: Neue Bibliothek
         subheader: zu den Öffnungszeiten hinzufügen
-        successful: Die Bibliothek %name% wurde erfolgreich angelegt.
       cafeteria:
         title: Neue Cafeteria oder Mensa
         header: Neue Cafeteria oder Mensa
         subheader: zu den Öffnungszeiten hinzufügen
-        successful: Die Cafeteria bzw. Mensa %name% wurde erfolgreich angelegt.
       
     delete:
       successful: Die Einrichtung %name% wurde erfolgreich gelöscht.

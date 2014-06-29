@@ -3,6 +3,6 @@
 	<td class="groupingRow">
 		{{ include(':Button:spacer.html.twig') }}
 		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_update', { 'categoryId' : id } ) } ) }}
-		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_delete', { 'categoryId' : id } ) } ) }}
+		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_delete', { 'categoryId' : id, 'confirmed' : 0 } ) } ) }}
 	</td>
 </tr>

@@ -37,7 +37,7 @@ class ContactPersonController extends Controller {
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Contact:createPerson.html.twig', array('form' => $form -> createView(), 'group' => $group));
 	}
 
-	public function deleteAction($personId) {
+	public function deleteAction($personId, $confirmed) {
 		$em = $this -> container -> get('doctrine') -> getManager();
 		$person = $em -> getRepository('FacultyInfoFirstPartyDataBundle:ContactPerson') -> find($personId);
 
@@ -45,11 +45,17 @@ class ContactPersonController extends Controller {
 			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_contact_overview'));
 		}
 
-		$em -> remove($person);
-		$em -> flush();
+		if ($confirmed === "1") {
+			$em -> remove($person);
+			$em -> flush();
 
-		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.contact.person.delete.successful', array('%name%' => $person -> getName())));
-		return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_contact_overview'));
+			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.contact.person.delete.successful', array('%name%' => $person -> getName())));
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_contact_overview'));
+		}
+
+		$confirmUrl = $this -> generateUrl('facultyinfo_firstparty_contact_person_delete', array('personId' => $personId, 'confirmed' => 1));
+		$cancelUrl = $this -> generateUrl('facultyinfo_firstparty_contact_overview');
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Overview:delete.html.twig', array('name' => $person -> getName(), 'text' => 'firstParty.contact.person.delete.text', 'confirmUrl' => $confirmUrl, 'cancelUrl' => $cancelUrl));
 	}
 
 	public function updateAction($personId) {

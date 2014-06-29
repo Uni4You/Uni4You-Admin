@@ -2,6 +2,6 @@
 	<td colspan="2" class="groupingRow">{{ title }}</td>
 	<td class="groupingRow">
 		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_contact_group_update', { 'groupId' : id } )}) }}
-		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_contact_group_delete', { 'groupId' : id } ) }) }}
+		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_contact_group_delete', { 'groupId' : id, 'confirmed' : 0} ) }) }}
 	</td>
 </tr>

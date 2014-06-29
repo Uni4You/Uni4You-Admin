@@ -38,9 +38,19 @@ userManagement:
       
   passwordReset:
     successful: Das Password von %name% wurde erfolgreich zurückgesetzt. Das neue Passwort lautet <tt>%pwd%</tt> .
+    title: Passwort zurücksetzen?
+    subheader: Passwort zurücksetzen?
+    text: Das Passwort von Benutzer %name% sicher zurücksetzen?
+    confirm: Ja, das Passwort von %name% zurücksetzen
+    cancel: Nein, das Passwort nicht zurücksetzen
 
   delete:
-    successful: Der Benutzer %name% wurder erfolgreich gelöscht.
+    successful: Der Benutzer %name% wurde erfolgreich gelöscht.
+    title: Sicher löschen?
+    subheader: Sicher löschen?
+    text: Benutzer %name% sicher löschen?
+    confirm: Ja, %name% löschen
+    cancel: Nein, %name% nicht löschen
 
 signin:
   title: Login

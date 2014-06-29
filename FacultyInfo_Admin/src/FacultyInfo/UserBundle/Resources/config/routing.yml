@@ -3,7 +3,7 @@ facultyinfo_user_overview:
     defaults: { _controller: FacultyInfoUserBundle:Overview:index }
 
 facultyinfo_user_delete:
-    pattern: /delete/{userId}
+    pattern: /delete/{userId}/{confirmed}
     defaults: { _controller: FacultyInfoUserBundle:Overview:delete }
 
 facultyinfo_user_update:
@@ -15,5 +15,5 @@ facultyinfo_user_create:
     defaults: { _controller: FacultyInfoUserBundle:Create:index }
     
 facultyinfo_user_reset:
-    pattern: /reset/{userId}
+    pattern: /reset/{userId}/{confirmed}
     defaults: { _controller: FacultyInfoUserBundle:Overview:reset }

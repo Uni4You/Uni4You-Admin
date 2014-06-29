@@ -5,6 +5,6 @@
 	<td>
 		{{ include(':Button:detail.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category', { 'categoryId' : id } ) } ) }}
 		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_update', { 'categoryId' : id } ) } ) }}
-		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_delete', {'categoryId' : id } ) } ) }}
+		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_category_delete', {'categoryId' : id, 'confirmed' : 0 } ) } ) }}
 	</td>
 </tr>

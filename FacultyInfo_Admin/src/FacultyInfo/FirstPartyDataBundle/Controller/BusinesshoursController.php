@@ -61,7 +61,7 @@ class BusinesshoursController extends Controller {
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:create.html.twig', array('form' => $form -> createView(), 'facility' => $facility, 'transGrp' => $type == BusinesshoursFacility::TYPE_LIBRARY ? 'library' : 'cafeteria'));
 	}
 
-	public function deleteAction($facilityId) {
+	public function deleteAction($facilityId, $confirmed) {
 		$em = $this -> container -> get('doctrine') -> getManager();
 		$facility = $em -> getRepository('FacultyInfoFirstPartyDataBundle:BusinesshoursFacility') -> find($facilityId);
 
@@ -69,11 +69,17 @@ class BusinesshoursController extends Controller {
 			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_businesshours_overview'));
 		}
 
-		$em -> remove($facility);
-		$em -> flush();
+		if ($confirmed === "1") {
+			$em -> remove($facility);
+			$em -> flush();
 
-		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.businesshours.delete.successful', array('%name%' => $facility -> getName())));
-		return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_businesshours_overview'));
+			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.businesshours.delete.successful', array('%name%' => $facility -> getName())));
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_businesshours_overview'));
+		}
+
+		$confirmUrl = $this -> generateUrl('facultyinfo_firstparty_businesshours_delete', array('facilityId' => $facilityId, 'confirmed' => 1));
+		$cancelUrl = $this -> generateUrl('facultyinfo_firstparty_businesshours_overview');
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Overview:delete.html.twig', array('name' => $facility -> getName(), 'text' => 'firstParty.businesshours.delete.text', 'confirmUrl' => $confirmUrl, 'cancelUrl' => $cancelUrl));
 	}
 
 	public function updateAction($facilityId) {

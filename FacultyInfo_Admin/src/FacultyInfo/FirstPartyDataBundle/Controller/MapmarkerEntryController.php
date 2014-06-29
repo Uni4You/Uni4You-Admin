@@ -62,7 +62,7 @@ class MapmarkerEntryController extends Controller {
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Mapmarker:createEntry.html.twig', array('form' => $form -> createView(), 'category' => $category));
 	}
 
-	public function deleteAction($entryId) {
+	public function deleteAction($entryId, $confirmed) {
 		$em = $this -> container -> get('doctrine') -> getManager();
 		$entry = $em -> getRepository('FacultyInfoFirstPartyDataBundle:Mapmarker') -> find($entryId);
 
@@ -70,11 +70,17 @@ class MapmarkerEntryController extends Controller {
 			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_mapmarker_overview'));
 		}
 
-		$em -> remove($entry);
-		$em -> flush();
+		if ($confirmed === "1") {
+			$em -> remove($entry);
+			$em -> flush();
 
-		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.mapmarker.entry.delete.successful', array('%name%' => $entry -> getName())));
-		return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_mapmarker_category', array('categoryId' => $entry -> getCategory() -> getId())));
+			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.mapmarker.entry.delete.successful', array('%name%' => $entry -> getName())));
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_mapmarker_category', array('categoryId' => $entry -> getCategory() -> getId())));
+		}
+
+		$confirmUrl = $this -> generateUrl('facultyinfo_firstparty_mapmarker_entry_delete', array('entryId' => $entryId, 'confirmed' => 1));
+		$cancelUrl = $this -> generateUrl('facultyinfo_firstparty_mapmarker_overview');
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Overview:delete.html.twig', array('name' => $entry -> getName(), 'text' => 'firstParty.mapmarker.entry.delete.text', 'confirmUrl' => $confirmUrl, 'cancelUrl' => $cancelUrl));
 	}
 
 	private function generateUuid() {

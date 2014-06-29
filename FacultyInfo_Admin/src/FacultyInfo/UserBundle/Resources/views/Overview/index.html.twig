@@ -37,8 +37,8 @@
 				<td>{{ user.email }}</td>
 				<td>
 					{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_user_update', { 'userId' : user.id } ) } ) }}
-					{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_user_delete', { 'userId' : user.id } ) } ) }}
-					{{ include(':Button:resetPassword.html.twig', { 'url' : url('facultyinfo_user_reset', { 'userId' : user.id } ) } ) }}
+					{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_user_delete', { 'userId' : user.id, 'confirmed' : 0 } ) } ) }}
+					{{ include(':Button:resetPassword.html.twig', { 'url' : url('facultyinfo_user_reset', { 'userId' : user.id, 'confirmed' : 0 } ) } ) }}
 				</td>
 			</tr>
 		{% endfor %}

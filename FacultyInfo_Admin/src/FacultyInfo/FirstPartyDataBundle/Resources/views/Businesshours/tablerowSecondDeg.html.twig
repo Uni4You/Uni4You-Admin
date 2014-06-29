@@ -3,6 +3,6 @@
 	<td>{{ name }}</td>
 	<td>
 		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_businesshours_update', { 'facilityId' : id  } )}) }}
-		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_businesshours_delete', { 'facilityId' : id } ) }) }}
+		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_businesshours_delete', { 'facilityId' : id, 'confirmed' : 0 } ) }) }}
 	</td>
 </tr>

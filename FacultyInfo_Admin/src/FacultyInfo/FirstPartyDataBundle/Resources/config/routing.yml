@@ -15,7 +15,7 @@ facultyinfo_firstparty_mapmarker_category_create_sub:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:createSub }
     
 facultyinfo_firstparty_mapmarker_category_delete:
-    pattern:  /mapmarker/category/delete/{categoryId}
+    pattern:  /mapmarker/category/delete/{categoryId}/{confirmed}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerCategory:delete }
     
 facultyinfo_firstparty_mapmarker_category_update:
@@ -31,7 +31,7 @@ facultyinfo_firstparty_mapmarker_entry_create:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:create }
     
 facultyinfo_firstparty_mapmarker_entry_delete:
-    pattern:  /mapmarker/entry/delete/{entryId}
+    pattern:  /mapmarker/entry/delete/{entryId}/{confirmed}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:delete }
     
 facultyinfo_firstparty_mapmarker_entry:
@@ -47,7 +47,7 @@ facultyinfo_firstparty_contact_group_create:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:create }  
   
 facultyinfo_firstparty_contact_group_delete:
-    pattern:  /contact/group/delete/{groupId}
+    pattern:  /contact/group/delete/{groupId}/{confirmed}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:delete }
     
 facultyinfo_firstparty_contact_group_update:
@@ -59,7 +59,7 @@ facultyinfo_firstparty_contact_person_create:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactPerson:create }
     
 facultyinfo_firstparty_contact_person_delete:
-    pattern:  /contact/person/delete/{personId}
+    pattern:  /contact/person/delete/{personId}/{confirmed}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactPerson:delete }
 
 facultyinfo_firstparty_contact_person_update:
@@ -71,7 +71,7 @@ facultyinfo_firstparty_businesshours_overview:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:overview }
     
 facultyinfo_firstparty_businesshours_delete:
-    pattern:  /businesshours/delete/{facilityId}
+    pattern:  /businesshours/delete/{facilityId}/{confirmed}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:delete }
     
 facultyinfo_firstparty_businesshours_create_library:

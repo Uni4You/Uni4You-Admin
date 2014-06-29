@@ -7,6 +7,12 @@ firstParty:
     name: Modul
     lastUpdate: Letzte Änderung
     
+  delete:
+    title: Sicher löschen?
+    subheader: Sicher löschen?
+    confirm: Ja, %name% löschen
+    cancel: Nein, %name% nicht löschen
+    
   mapmarker:
     name: Lageplan
     newCategory: Neue Kategorie anlegen...
@@ -39,6 +45,7 @@ firstParty:
           
       delete:
         successful: Die Kategorie %title% wurde erfolgreich gelöscht.
+        text: Die Lageplan-Kategorie %name% mit allen Unterkategorien und Einträgen sicher löschen?
         
       update:
         subheader: Bearbeiten
@@ -63,6 +70,7 @@ firstParty:
         
       delete:
         successful: Der Eintrag %name% wurde erfolgreich gelöscht.
+        text: Den Lageplan-Eintrag %name% sicher löschen?
     
   businesshours:
     name: Öffnungszeiten
@@ -110,6 +118,7 @@ firstParty:
       
     delete:
       successful: Die Einrichtung %name% wurde erfolgreich gelöscht.
+      text: Die Einrichtung %name% sicher löschen?
       
   contact:
     name: Ansprechpartner
@@ -136,6 +145,7 @@ firstParty:
         
       delete:
         successful: Der Lehrstuhl %title% wurde erfolgreich gelöscht.
+        text: Den Lehrstuhl %name% mit allen zugeordneten Personen sicher löschen?
         
       update:
         subheader: Bearbeiten
@@ -157,6 +167,7 @@ firstParty:
         
       delete:
         successful: Die Person %name% wurde erfolgreich gelöscht.
+        text: Die Person %name% sicher löschen?
         
       update:
         subheader: Bearbeiten

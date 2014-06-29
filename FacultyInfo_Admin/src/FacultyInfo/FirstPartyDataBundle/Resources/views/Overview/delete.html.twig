@@ -1,0 +1,29 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{% trans %}firstParty.delete.title{% endtrans %}{% endblock %}
+{% block header %}{{ name }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.delete.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': 'firstParty.delete.title', 'target': app.request.uri }) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<h1 class="title">
+		{{ text|trans({ '%name%' : name}) }}
+	</h1>
+	<br><br>
+	<a target="_self" href="{{ confirmUrl }}" class="button rounded medium uni4you">
+		{% trans with { '%name%' : name } %}firstParty.delete.confirm{% endtrans %}
+	</a>
+	<a target="_self" href="{{ cancelUrl }}" class="button rounded medium uni4you">
+		{% trans with { '%name%' : name } %}firstParty.delete.cancel{% endtrans %}
+	</a>		
+{% endblock %}

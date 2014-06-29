@@ -21,7 +21,7 @@ class OverviewController extends Controller {
 		return $this -> render('FacultyInfoUserBundle:Overview:index.html.twig', array('users' => $users, 'me' => $me));
 	}
 
-	public function deleteAction($userId) {
+	public function deleteAction($userId, $confirmed) {
 		$em = $this -> container -> get('doctrine') -> getManager();
 		$user = $em -> getRepository('FacultyInfoUserBundle:User') -> find($userId);
 
@@ -30,14 +30,18 @@ class OverviewController extends Controller {
 			return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
 		}
 
-		$em -> remove($user);
-		$em -> flush();
+		if ($confirmed === "1") {
+			$em -> remove($user);
+			$em -> flush();
 
-		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.delete.successful', array('%name%' => $user -> getName())));
-		return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
+			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.delete.successful', array('%name%' => $user -> getName())));
+			return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
+		}
+
+		return $this -> render('FacultyInfoUserBundle:Overview:delete.html.twig', array('name' => $user -> getName(), 'id' => $user -> getId()));
 	}
 
-	public function resetAction($userId) {
+	public function resetAction($userId, $confirmed) {
 		$em = $this -> container -> get('doctrine') -> getManager();
 		$user = $em -> getRepository('FacultyInfoUserBundle:User') -> find($userId);
 
@@ -46,16 +50,21 @@ class OverviewController extends Controller {
 			return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
 		}
 
-		$pwd = $this -> generatePassword();
-		$currentUser = $this -> get('security.context') -> getToken() -> getUser();
-		$encoder = $this -> container -> get('facultyinfo_user_custom_encoder');
-		$encodedPwd = $encoder -> encodePassword($pwd, $currentUser -> getSalt());
-		$user -> setPassword($encodedPwd);
+		if ($confirmed === "1") {
 
-		$em -> flush();
+			$pwd = $this -> generatePassword();
+			$currentUser = $this -> get('security.context') -> getToken() -> getUser();
+			$encoder = $this -> container -> get('facultyinfo_user_custom_encoder');
+			$encodedPwd = $encoder -> encodePassword($pwd, $currentUser -> getSalt());
+			$user -> setPassword($encodedPwd);
 
-		$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.passwordReset.successful', array('%name%' => $user -> getName(), '%pwd%' => $pwd)));
-		return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
+			$em -> flush();
+
+			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('userManagement.passwordReset.successful', array('%name%' => $user -> getName(), '%pwd%' => $pwd)));
+			return $this -> redirect($this -> generateUrl('facultyinfo_user_overview'));
+		}
+
+		return $this -> render('FacultyInfoUserBundle:Overview:resetPassword.html.twig', array('name' => $user -> getName(), 'id' => $user -> getId()));
 	}
 
 	private function generatePassword() {

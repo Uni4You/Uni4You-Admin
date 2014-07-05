@@ -127,6 +127,16 @@ firstParty:
       successful: Die Einrichtung %name% wurde erfolgreich gelöscht.
       text: Die Einrichtung %name% sicher löschen?
       
+    show:
+      subheader: Details
+      columns:
+        name: Wochentag
+        open: Geöffnet?
+        from: Offen von...
+        till: ...bis
+      open: Geöffnet
+      closed: Geschlossen
+      
   contact:
     name: Ansprechpartner
     title: Ansprechpartner

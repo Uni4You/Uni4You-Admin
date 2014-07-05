@@ -87,5 +87,9 @@ facultyinfo_firstparty_businesshours_create_cafeteria:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:createCafeteria }
     
 facultyinfo_firstparty_businesshours_update:
-    pattern:  /businesshours/{facilityId}
+    pattern:  /businesshours/update/{facilityId}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:update }
+    
+facultyinfo_firstparty_businesshours:
+    pattern:  /businesshours/{facilityId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:Businesshours:show }

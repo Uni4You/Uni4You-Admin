@@ -1,0 +1,58 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ facility.name }}{% endblock %}
+{% block header %}{{ facility.name }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.businesshours.show.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.businesshours.name', 'target': url('facultyinfo_firstparty_businesshours_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': facility.name, 'target': url('facultyinfo_firstparty_businesshours', { 'facilityId' : facility.id}) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<table style="width: 100%">
+		<tr>
+			<th colspan="2">{% trans %}firstParty.businesshours.show.columns.name{% endtrans %}</th>
+			<th>{% trans %}firstParty.businesshours.show.columns.open{% endtrans %}</th>
+			<th>{% trans %}firstParty.businesshours.show.columns.from{% endtrans %}</th>
+			<th>{% trans %}firstParty.businesshours.show.columns.till{% endtrans %}</th>
+		</tr>
+		
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.semester'} ) }}
+		
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.monday', 'row' : facility.semesterMonday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.tuesday', 'row' : facility.semesterTuesday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.wednesday', 'row' : facility.semesterWednesday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.thursday', 'row' : facility.semesterThursday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.friday', 'row' : facility.semesterFriday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.saturday', 'row' : facility.semesterSaturday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.sunday', 'row' : facility.semesterSunday } ) }}
+		
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:updateTablerowFirstDeg.html.twig', {'title' : 'firstParty.businesshours.break'} ) }}
+	
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.monday', 'row' : facility.breakMonday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.tuesday', 'row' : facility.breakTuesday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.wednesday', 'row' : facility.breakWednesday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.thursday', 'row' : facility.breakThursday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.friday', 'row' : facility.breakFriday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.saturday', 'row' : facility.breakSaturday } ) }}
+		{{ include('FacultyInfoFirstPartyDataBundle:Businesshours:showTablerowSecondDeg.html.twig', {'title' : 'firstParty.businesshours.sunday', 'row' : facility.breakSunday } ) }}
+	</table>
+	
+	<div class="divider-border" style="margin-top: 20px; margin-bottom: 20px"></div>
+	
+	<a target="_self" href="{{ path('facultyinfo_firstparty_businesshours_overview') }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.mapmarker.entry.show.back{% endtrans %}
+	</a>
+	<a target="_self" href="{{ path('facultyinfo_firstparty_businesshours_update', {'facilityId' : facility.id }) }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.mapmarker.entry.show.update{% endtrans %}
+	</a>	
+{% endblock %}

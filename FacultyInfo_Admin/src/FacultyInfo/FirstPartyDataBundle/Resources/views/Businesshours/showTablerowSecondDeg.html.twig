@@ -1,0 +1,21 @@
+<tr>
+	<td class="indent"></td>
+	<td>{{ title|trans }}</td>
+	{% if row.open %}
+		<td>
+			{% trans %}firstParty.businesshours.show.open{% endtrans %}
+		</td>
+		<td>
+			{{ row.openingtime|date('H:i') }}
+		</td>
+		<td>
+			{{ row.closingtime|date('H:i') }}
+		</td>
+	{% else %}
+		<td>
+			{% trans %}firstParty.businesshours.show.closed{% endtrans %}
+		</td>
+		<td></td>
+		<td></td>
+	{% endif %}
+</tr>

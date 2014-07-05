@@ -109,6 +109,19 @@ class BusinesshoursController extends Controller {
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:update.html.twig', array('form' => $form -> createView(), 'facility' => $facility));
 	}
 
+	public function showAction($facilityId) {
+		$em = $this -> container -> get('doctrine') -> getManager();
+		$facility = $em -> getRepository('FacultyInfoFirstPartyDataBundle:BusinesshoursFacility') -> find($facilityId);
+
+		if (!$facility) {
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_businesshours_overview'));
+		}
+
+		$this -> mapToForm($facility);
+
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Businesshours:show.html.twig', array('facility' => $facility));
+	}
+
 	private function generateUuid() {
 		return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 		// 32 bits for "time_low"

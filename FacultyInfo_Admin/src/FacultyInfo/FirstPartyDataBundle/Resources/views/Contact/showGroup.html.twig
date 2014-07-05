@@ -1,0 +1,39 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ group.title }}{% endblock %}
+{% block header %}{{ group.title }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.contact.group.show.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.contact.name', 'target': url('facultyinfo_firstparty_contact_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': group.title|length > 30 ? group.title|slice(0, 30) ~ '...' : group.title, 'target': url('facultyinfo_firstparty_contact_group_update', { 'groupId' : group.id}) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<p>
+		{% if group.description %}
+			{{ group.description|nl2br }}
+		{% else %}
+			<span style="font-style: italic">
+				{% trans %}firstParty.contact.group.show.noDescription{% endtrans %}
+			</span>
+		{% endif %}
+	</p>
+	
+	<div class="divider-border" style="margin-top: 20px; margin-bottom: 20px"></div>
+	
+	<a target="_self" href="{{ path('facultyinfo_firstparty_contact_overview') }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.contact.group.show.back{% endtrans %}
+	</a>
+	<a target="_self" href="{{ path('facultyinfo_firstparty_contact_group_update', {'groupId' : group.id }) }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.contact.group.show.update{% endtrans %}
+	</a>	
+{% endblock %}

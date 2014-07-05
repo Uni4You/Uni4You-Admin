@@ -168,6 +168,12 @@ firstParty:
         subheader: Bearbeiten
         successful: Der Lehrstuhl %title% wurde erfolgreich geändert.
         
+      show:
+        subheader: Details
+        back: Zurück zur Übersicht
+        update: Lehrstuhl bearbeiten
+        noDescription: Keine Beschreibung angegeben.
+        
     person:
       labels:
         name: Name
@@ -189,3 +195,10 @@ firstParty:
       update:
         subheader: Bearbeiten
         successful: Die Person %name% wurde erfolgreich geändert.
+        
+      show:
+        office: Büro
+        phone: Telefon
+        email: Email
+        back: Zurück zur Übersicht
+        update: Person bearbeiten

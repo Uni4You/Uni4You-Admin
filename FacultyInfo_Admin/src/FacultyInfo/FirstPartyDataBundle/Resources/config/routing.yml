@@ -55,8 +55,12 @@ facultyinfo_firstparty_contact_group_delete:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:delete }
     
 facultyinfo_firstparty_contact_group_update:
-    pattern:  /contact/group/{groupId}
+    pattern:  /contact/group/update/{groupId}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:update }
+    
+facultyinfo_firstparty_contact_group:
+    pattern:  /contact/group/{groupId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:show }
     
 facultyinfo_firstparty_contact_person_create:
     pattern:  /contact/person/create/{groupId}
@@ -67,8 +71,12 @@ facultyinfo_firstparty_contact_person_delete:
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactPerson:delete }
 
 facultyinfo_firstparty_contact_person_update:
-    pattern:  /contact/person/{personId}
+    pattern:  /contact/person/update/{personId}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactPerson:update }
+    
+facultyinfo_firstparty_contact_person:
+    pattern:  /contact/person/{personId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactPerson:show }
     
 facultyinfo_firstparty_businesshours_overview:
     pattern:  /businesshours

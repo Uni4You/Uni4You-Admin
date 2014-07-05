@@ -2,6 +2,7 @@
 	<td class="indent"></td>
 	<td>{{ name }}</td>
 	<td>
+		{{ include(':Button:detail.html.twig', { 'url' : url('facultyinfo_firstparty_contact_person', { 'personId' : id } )} ) }}
 		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_contact_person_update', { 'personId' : id } )} ) }}
 		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_contact_person_delete', {'personId' : id, 'confirmed' : 0 } )} ) }}
 	</td>

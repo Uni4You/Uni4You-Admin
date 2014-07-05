@@ -82,6 +82,17 @@ class ContactPersonController extends Controller {
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Contact:updatePerson.html.twig', array('form' => $form -> createView(), 'person' => $person));
 	}
 
+	public function showAction($personId) {
+		$em = $this -> container -> get('doctrine') -> getManager();
+		$person = $em -> getRepository('FacultyInfoFirstPartyDataBundle:ContactPerson') -> find($personId);
+
+		if (!$person) {
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_contact_overview'));
+		}
+
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Contact:showPerson.html.twig', array('person' => $person));
+	}
+
 	private function generateUuid() {
 		return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 		// 32 bits for "time_low"

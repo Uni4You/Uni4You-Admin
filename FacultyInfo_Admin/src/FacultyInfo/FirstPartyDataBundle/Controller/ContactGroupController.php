@@ -50,7 +50,7 @@ class ContactGroupController extends Controller {
 			$this -> get('session') -> getFlashBag() -> add('success', $this -> get('translator') -> trans('firstParty.contact.group.delete.successful', array('%title%' => $group -> getTitle())));
 			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_contact_overview'));
 		}
-		
+
 		$confirmUrl = $this -> generateUrl('facultyinfo_firstparty_contact_group_delete', array('groupId' => $groupId, 'confirmed' => 1));
 		$cancelUrl = $this -> generateUrl('facultyinfo_firstparty_contact_overview');
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Overview:delete.html.twig', array('name' => $group -> getTitle(), 'text' => 'firstParty.contact.group.delete.text', 'confirmUrl' => $confirmUrl, 'cancelUrl' => $cancelUrl));
@@ -78,6 +78,17 @@ class ContactGroupController extends Controller {
 		}
 
 		return $this -> render('FacultyInfoFirstPartyDataBundle:Contact:updateGroup.html.twig', array('form' => $form -> createView(), 'group' => $group));
+	}
+
+	public function showAction($groupId) {
+		$em = $this -> container -> get('doctrine') -> getManager();
+		$group = $em -> getRepository('FacultyInfoFirstPartyDataBundle:ContactGroup') -> find($groupId);
+
+		if (!$group) {
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_contact_overview'));
+		}
+
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Contact:showGroup.html.twig', array('group' => $group));
 	}
 
 	private function generateUuid() {

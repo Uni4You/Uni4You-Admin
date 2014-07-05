@@ -1,0 +1,45 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ person.name }}{% endblock %}
+{% block header %}{{ person.name }}{% endblock %}
+{% block subheader %}{{ person.group.title }}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.contact.name', 'target': url('facultyinfo_firstparty_contact_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': person.group.title|length > 30 ? person.group.title|slice(0, 30) ~ '...' : person.group.title, 'target': url('facultyinfo_firstparty_contact_overview') } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': person.name, 'target': url('facultyinfo_firstparty_contact_person', { 'personId' : person.id}) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<p>
+		{{ person.description|nl2br }}
+	</p>
+	<p>
+		{% if person.office %}
+			<span style="font-weight: 700">{% trans %}firstParty.contact.person.show.office{% endtrans %}:</span> {{ person.office }}<br>
+		{% endif %}
+		{% if person.phone %}
+			<span style="font-weight: 700">{% trans %}firstParty.contact.person.show.phone{% endtrans %}:</span> {{ person.phone }}<br>
+		{% endif %}
+		{% if person.email %}
+			<span style="font-weight: 700">{% trans %}firstParty.contact.person.show.email{% endtrans %}:</span> {{ person.email }}<br>
+		{% endif %}
+	</p>
+	
+	<div class="divider-border" style="margin-top: 20px; margin-bottom: 20px"></div>
+	
+	<a target="_self" href="{{ path('facultyinfo_firstparty_contact_overview') }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.contact.person.show.back{% endtrans %}
+	</a>
+	<a target="_self" href="{{ path('facultyinfo_firstparty_contact_person_update', {'personId' : person.id }) }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.contact.person.show.update{% endtrans %}
+	</a>	
+{% endblock %}

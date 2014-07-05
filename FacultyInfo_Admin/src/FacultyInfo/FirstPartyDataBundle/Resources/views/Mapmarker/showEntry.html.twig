@@ -1,0 +1,59 @@
+{% extends "::frame.html.twig" %}
+
+{% block title %}{{ entry.name }}{% endblock %}
+{% block header %}{{ entry.name }}{% endblock %}
+{% block subheader %}{% trans %}firstParty.mapmarker.entry.show.subheader{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+	{{ include(':Breadcrumb:start.html.twig') }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.title', 'target': url('facultyinfo_firstparty_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': 'firstParty.mapmarker.name', 'target': url('facultyinfo_firstparty_mapmarker_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': entry.category.superCategory.title, 'target': url('facultyinfo_firstparty_mapmarker_overview') } ) }}
+	{{ include(':Breadcrumb:path.html.twig', {'title': entry.category.title, 'target': url('facultyinfo_firstparty_mapmarker_category', {'categoryId' : entry.category.id}) } ) }}
+	{{ include(':Breadcrumb:current.html.twig', {'title': entry.name, 'target': url('facultyinfo_firstparty_mapmarker_entry', { 'entryId' : entry.id } ) } ) }}
+{% endblock %}
+
+{% block menu %}
+	{{ include('::menuItemCurrent.html.twig', {'url': url('facultyinfo_firstparty_overview'), 'label': 'menu.firstParty.label', 'tooltip': 'menu.firstParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_thirdparty_overview'), 'label': 'menu.thirdParty.label', 'tooltip': 'menu.thirdParty.tooltip' }) }}
+	{{ include('::menuItem.html.twig', {'url': url('facultyinfo_user_overview'), 'label': 'menu.user.label', 'tooltip': 'menu.user.tooltip' }) }}
+{% endblock %}
+
+{% block content %}
+	<p>
+		{{ entry.description|nl2br }}
+	</p>
+	<p>
+		<span style="font-weight: 700">{% trans %}firstParty.mapmarker.entry.show.latitude{% endtrans %}:</span> {{ entry.latitude }}<br>
+		<span style="font-weight: 700">{% trans %}firstParty.mapmarker.entry.show.longitude{% endtrans %}:</span> {{ entry.longitude }}
+	</p>
+	
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	  <script>
+      function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var latLng = new google.maps.LatLng({{ entry.latitude}} , {{ entry.longitude }});
+        var map_options = {
+          center: latLng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(map_canvas, map_options);
+        
+         var marker = new google.maps.Marker({
+		     position: latLng,
+		     map: map,
+		     title: '{{ entry.name }}'
+		 });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+	<div style="height: 300px; width: 100%; margin-bottom: 20px" id="map_canvas"></div>
+	
+	<a target="_self" href="{{ path('facultyinfo_firstparty_mapmarker_category', {'categoryId' : entry.category.id }) }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.mapmarker.entry.show.back{% endtrans %}
+	</a>
+	<a target="_self" href="{{ path('facultyinfo_firstparty_mapmarker_entry_update', {'entryId' : entry.id }) }}" class="button rounded medium uni4you">
+		{% trans %}firstParty.mapmarker.entry.show.update{% endtrans %}
+	</a>
+{% endblock %}

@@ -9,17 +9,17 @@
 		
 		{% for flashMessage in app.session.flashbag.get('error') %}
 			<div class="flash-error">
-				{{ flashMessage }}
+				{{ flashMessage|trans }}
 			</div>
 		{% endfor %}
 		{% for flashMessage in app.session.flashbag.get('success') %}
 			<div class="flash-success">
-				{{ flashMessage }}
+				{{ flashMessage|trans }}
 			</div>
 		{% endfor %}
 			
 		{% if error %}
-			<div id="loginError">{{ error.message }}</div>
+			<div id="loginError">{{ error.message|trans }}</div>
 		{% endif %}
 		
 		<form class="simpleForm" method="post" action="{{ path('login_check') }}">

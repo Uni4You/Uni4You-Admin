@@ -34,10 +34,14 @@ facultyinfo_firstparty_mapmarker_entry_delete:
     pattern:  /mapmarker/entry/delete/{entryId}/{confirmed}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:delete }
     
-facultyinfo_firstparty_mapmarker_entry:
-    pattern:  /mapmarker/entry/{entryId}
+facultyinfo_firstparty_mapmarker_entry_update:
+    pattern:  /mapmarker/entry/update/{entryId}
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:update }
 
+facultyinfo_firstparty_mapmarker_entry:
+    pattern:  /mapmarker/entry/{entryId}
+    defaults: { _controller: FacultyInfoFirstPartyDataBundle:MapmarkerEntry:show }
+    
 facultyinfo_firstparty_contact_overview:
     pattern:  /contact
     defaults: { _controller: FacultyInfoFirstPartyDataBundle:ContactGroup:overview }

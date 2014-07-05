@@ -2,7 +2,8 @@
 	<td>{{ name }}</td>
 	<td>{{ description }}</td>
 	<td>
-		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_entry', {'entryId' : id } )}) }}
+		{{ include(':Button:detail.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_entry', {'entryId' : id } )}) }}
+		{{ include(':Button:edit.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_entry_update', {'entryId' : id } )}) }}
 		{{ include(':Button:delete.html.twig', { 'url' : url('facultyinfo_firstparty_mapmarker_entry_delete', {'entryId' : id, 'confirmed' : 0 } )}) }}
 	</td>
 </tr>

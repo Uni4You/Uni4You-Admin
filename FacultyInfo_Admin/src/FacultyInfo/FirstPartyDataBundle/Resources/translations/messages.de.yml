@@ -71,6 +71,13 @@ firstParty:
       delete:
         successful: Der Eintrag %name% wurde erfolgreich gelöscht.
         text: Den Lageplan-Eintrag %name% sicher löschen?
+        
+      show:
+        subheader: Details
+        longitude: Längengrad
+        latitude: Breitengrad
+        back: Zurück zur Übersicht
+        update: Eintrag bearbeiten
     
   businesshours:
     name: Öffnungszeiten

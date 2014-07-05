@@ -8,6 +8,17 @@ use FacultyInfo\FirstPartyDataBundle\Entity\Mapmarker;
 use FacultyInfo\FirstPartyDataBundle\Form\Type\Mapmarker\EntryType;
 
 class MapmarkerEntryController extends Controller {
+	public function showAction($entryId) {
+		$em = $this -> container -> get('doctrine') -> getManager();
+		$entry = $em -> getRepository('FacultyInfoFirstPartyDataBundle:Mapmarker') -> find($entryId);
+
+		if (!$entry) {
+			return $this -> redirect($this -> generateUrl('facultyinfo_firstparty_mapmarker_overview'));
+		}
+
+		return $this -> render('FacultyInfoFirstPartyDataBundle:Mapmarker:showEntry.html.twig', array('entry' => $entry));
+	}
+
 	public function updateAction($entryId) {
 		$em = $this -> container -> get('doctrine') -> getManager();
 		$entry = $em -> getRepository('FacultyInfoFirstPartyDataBundle:Mapmarker') -> find($entryId);
